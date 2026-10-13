@@ -1,0 +1,37 @@
+{
+ "news_headlines": 602189,
+ "news_site_pulls": 593579,
+ "news_release_pulls": 8610,
+ "news_econ_term_share": 0.2113282309515667,
+ "news_syndicated_share": 0.01645662740435312,
+ "news_opinion_share": 0.02035905670810991,
+ "site_windows": 7879,
+ "site_windows_capped_share": 0.6494478994796294,
+ "news_by_group": {
+  "center": 89223,
+  "left": 170762,
+  "local": 281014,
+  "right": 52580
+ },
+ "news_econ_by_group": {
+  "center": 42942,
+  "left": 47094,
+  "local": 28383,
+  "right": 7021
+ },
+ "reddit_posts": 50926,
+ "reddit_by_sub": {
+  "Economics": 9937,
+  "economy": 13989,
+  "personalfinance": 27000
+ },
+ "reddit_by_kind": {
+  "link": 21914,
+  "self": 29012
+ },
+ "outlets_with_zero_items_2010": [
+  "houstonchronicle.com"
+ ],
+ "first_date": "2009-12-01",
+ "last_date": "2026-10-12"
+}

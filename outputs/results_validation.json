@@ -1,0 +1,2458 @@
+{
+ "annotator_validation": {
+  "A_valid": 450,
+  "A_problems": [],
+  "B_valid": 450,
+  "B_problems": []
+ },
+ "agreement_AB": [
+  {
+   "field": "relevant",
+   "N": 450,
+   "pct_agree": 0.9755555555555555,
+   "kappa": 0.9507805508600975,
+   "ac1": 0.9514394047157734,
+   "kappa_lo": 0.9196478782586197,
+   "kappa_hi": 0.9776279010391973,
+   "ac1_lo": 0.9206256257181625,
+   "ac1_hi": 0.9779270021435336,
+   "support": {
+    "no": 487,
+    "yes": 413
+   }
+  },
+  {
+   "field": "tone",
+   "N": 450,
+   "pct_agree": 0.9755555555555555,
+   "kappa": 0.9460249266702286,
+   "ac1": 0.9684000363878368,
+   "kappa_linear": 0.9495865075161934,
+   "alpha_ordinal": 0.9594135231278365,
+   "kappa_lo": 0.9120536507117359,
+   "kappa_hi": 0.9753197662022919,
+   "ac1_lo": 0.9481943159836271,
+   "ac1_hi": 0.9856852016668944,
+   "support": {
+    "neutral": 629,
+    "negative": 209,
+    "positive": 62
+   }
+  },
+  {
+   "field": "emotional",
+   "N": 450,
+   "pct_agree": 0.9911111111111112,
+   "kappa": 0.9485743671790183,
+   "ac1": 0.989253603028096,
+   "kappa_lo": 0.8902505944759466,
+   "kappa_hi": 0.9884455399784317,
+   "ac1_lo": 0.9777505840471686,
+   "ac1_hi": 0.9974112713246525,
+   "support": {
+    "0": 814,
+    "1": 86
+   }
+  },
+  {
+   "field": "frame_price",
+   "N": 450,
+   "pct_agree": 0.9955555555555555,
+   "kappa": 0.9807544264819091,
+   "ac1": 0.9949754074107158,
+   "kappa_lo": 0.9490961742946992,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9873286935404143,
+   "ac1_hi": 1.0,
+   "support": {
+    "none": 784,
+    "level": 86,
+    "rate": 30
+   }
+  },
+  {
+   "field": "frame_unit",
+   "N": 450,
+   "pct_agree": 0.9555555555555556,
+   "kappa": 0.9098205428803319,
+   "ac1": 0.9410268213292882,
+   "kappa_lo": 0.8698763856017383,
+   "kappa_hi": 0.9455235901282188,
+   "ac1_lo": 0.9151961348706673,
+   "ac1_hi": 0.9644535461175957,
+   "support": {
+    "none": 597,
+    "aggregate": 217,
+    "household": 86
+   }
+  },
+  {
+   "field": "frame_time",
+   "N": 450,
+   "pct_agree": 0.96,
+   "kappa": 0.9274141515520826,
+   "ac1": 0.9447893218458769,
+   "kappa_lo": 0.8924574934331555,
+   "kappa_hi": 0.9592333569370508,
+   "ac1_lo": 0.9178286716435359,
+   "ac1_hi": 0.9691768343277958,
+   "support": {
+    "none": 534,
+    "current": 259,
+    "forecast": 107
+   }
+  },
+  {
+   "field": "attr_target",
+   "N": 450,
+   "pct_agree": 0.9844444444444445,
+   "kappa": 0.9232530942403274,
+   "ac1": 0.9839806285478276,
+   "kappa_lo": 0.8640608302550521,
+   "kappa_hi": 0.9746776654234417,
+   "ac1_lo": 0.9722803663718873,
+   "ac1_hi": 0.9954132211014665,
+   "support": {
+    "none": 802,
+    "president": 44,
+    "foreign_trade": 22,
+    "congress": 8,
+    "fed": 7,
+    "democrats": 6,
+    "republicans": 6,
+    "business": 5
+   }
+  },
+  {
+   "field": "attr_dir",
+   "N": 450,
+   "pct_agree": 0.9866666666666667,
+   "kappa": 0.9326800807839031,
+   "ac1": 0.9852011614347749,
+   "kappa_lo": 0.8756217998335291,
+   "kappa_hi": 0.9793660657162765,
+   "ac1_lo": 0.9726804795406782,
+   "ac1_hi": 0.9951487971712097,
+   "support": {
+    "none": 802,
+    "blame": 77,
+    "credit": 21
+   }
+  },
+  {
+   "field": "topic:layoffs",
+   "N": 201,
+   "pct_agree": 0.9950248756218906,
+   "kappa": 0.9702354509107064,
+   "ac1": 0.9940264796350506,
+   "kappa_lo": 0.8980213089802132,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9811906358688023,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 365,
+    "1": 37
+   },
+   "prevalence": 0.09203980099502487,
+   "positive_agreement": 0.972972972972973
+  },
+  {
+   "field": "topic:hiring",
+   "N": 201,
+   "pct_agree": 0.9950248756218906,
+   "kappa": 0.9669896534734768,
+   "ac1": 0.9941420765027321,
+   "kappa_lo": 0.8838787910985302,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9813662736125549,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 369,
+    "1": 33
+   },
+   "prevalence": 0.08208955223880597,
+   "positive_agreement": 0.9696969696969697
+  },
+  {
+   "field": "topic:prices_high",
+   "N": 201,
+   "pct_agree": 0.9900497512437811,
+   "kappa": 0.9681911694888432,
+   "ac1": 0.9855213398163156,
+   "kappa_lo": 0.9163963064636885,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9626789460980003,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 324,
+    "1": 78
+   },
+   "prevalence": 0.19402985074626866,
+   "positive_agreement": 0.9743589743589743
+  },
+  {
+   "field": "topic:inflation_up",
+   "N": 201,
+   "pct_agree": 0.9950248756218906,
+   "kappa": 0.9538885065381968,
+   "ac1": 0.9944232503294722,
+   "kappa_lo": 0.8283518360375747,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9824262295081967,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 379,
+    "1": 23
+   },
+   "prevalence": 0.05721393034825871,
+   "positive_agreement": 0.9565217391304348
+  },
+  {
+   "field": "topic:inflation_down",
+   "N": 201,
+   "pct_agree": 1.0,
+   "kappa": 1.0,
+   "ac1": 1.0,
+   "kappa_lo": 1.0,
+   "kappa_hi": 1.0,
+   "ac1_lo": 1.0,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 390,
+    "1": 12
+   },
+   "prevalence": 0.029850746268656716,
+   "positive_agreement": 1.0
+  },
+  {
+   "field": "topic:growth",
+   "N": 201,
+   "pct_agree": 0.9651741293532339,
+   "kappa": 0.8313556274721323,
+   "ac1": 0.9561114836938722,
+   "kappa_lo": 0.6933550632894804,
+   "kappa_hi": 0.9390337487690112,
+   "ac1_lo": 0.9184532860127476,
+   "ac1_hi": 0.9870343492985003,
+   "support": {
+    "0": 355,
+    "1": 47
+   },
+   "prevalence": 0.11691542288557213,
+   "positive_agreement": 0.851063829787234
+  },
+  {
+   "field": "topic:recession",
+   "N": 201,
+   "pct_agree": 0.9950248756218906,
+   "kappa": 0.9447650453421269,
+   "ac1": 0.9945324719483171,
+   "kappa_lo": 0.7951070336391437,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9829364574048134,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 383,
+    "1": 19
+   },
+   "prevalence": 0.0472636815920398,
+   "positive_agreement": 0.9473684210526315
+  },
+  {
+   "field": "topic:rates",
+   "N": 201,
+   "pct_agree": 1.0,
+   "kappa": 1.0,
+   "ac1": 1.0,
+   "kappa_lo": 1.0,
+   "kappa_hi": 1.0,
+   "ac1_lo": 1.0,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 340,
+    "1": 62
+   },
+   "prevalence": 0.15422885572139303,
+   "positive_agreement": 1.0
+  },
+  {
+   "field": "topic:tariffs",
+   "N": 201,
+   "pct_agree": 1.0,
+   "kappa": 1.0,
+   "ac1": 1.0,
+   "kappa_lo": 1.0,
+   "kappa_hi": 1.0,
+   "ac1_lo": 1.0,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 350,
+    "1": 52
+   },
+   "prevalence": 0.12935323383084577,
+   "positive_agreement": 1.0
+  },
+  {
+   "field": "topic:housing",
+   "N": 201,
+   "pct_agree": 1.0,
+   "kappa": 1.0,
+   "ac1": 1.0,
+   "kappa_lo": 1.0,
+   "kappa_hi": 1.0,
+   "ac1_lo": 1.0,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 378,
+    "1": 24
+   },
+   "prevalence": 0.05970149253731343,
+   "positive_agreement": 1.0
+  },
+  {
+   "field": "topic:markets",
+   "N": 201,
+   "pct_agree": 1.0,
+   "kappa": 1.0,
+   "ac1": 1.0,
+   "kappa_lo": 1.0,
+   "kappa_hi": 1.0,
+   "ac1_lo": 1.0,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 368,
+    "1": 34
+   },
+   "prevalence": 0.0845771144278607,
+   "positive_agreement": 1.0
+  },
+  {
+   "field": "topic:income",
+   "N": 201,
+   "pct_agree": 0.9950248756218906,
+   "kappa": 0.94976255936016,
+   "ac1": 0.9944780978283265,
+   "kappa_lo": 0.8230633802816901,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9827677359434164,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 381,
+    "1": 21
+   },
+   "prevalence": 0.05223880597014925,
+   "positive_agreement": 0.9523809523809523
+  },
+  {
+   "field": "topic:other",
+   "N": 201,
+   "pct_agree": 0.9651741293532339,
+   "kappa": 0.8775350335103143,
+   "ac1": 0.9513359273670559,
+   "kappa_lo": 0.7772808264326618,
+   "kappa_hi": 0.95722494147691,
+   "ac1_lo": 0.910033141288928,
+   "ac1_hi": 0.9855245443175521,
+   "support": {
+    "0": 333,
+    "1": 69
+   },
+   "prevalence": 0.17164179104477612,
+   "positive_agreement": 0.8985507246376812
+  }
+ ],
+ "agreement_AB_claims": {
+  "tp": 6,
+  "fp": 0,
+  "fn": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0
+ },
+ "n_items_any_disagreement": 55,
+ "adjudication_missing": [],
+ "tools_vs_gold": [
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9555555555555556,
+   "macro_f1": 0.9553003814367451,
+   "f1_lo": 0.9350147487993596,
+   "f1_hi": 0.9730765026341642,
+   "kappa": 0.9106007628734901
+  },
+  {
+   "tool": "dictionary",
+   "field": "relevant",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.4666666666666667,
+   "macro_f1": 0.32526989204318274,
+   "f1_lo": 0.30005503840723635,
+   "f1_hi": 0.3500745332879661,
+   "kappa": 0.007644810349897058
+  },
+  {
+   "tool": "tfidf_goldcv",
+   "field": "relevant",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.7177777777777777,
+   "macro_f1": 0.7164320553342034,
+   "f1_lo": 0.6753174487549488,
+   "f1_hi": 0.7584581628223361,
+   "kappa": 0.4328894357671622
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "relevant",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8311111111111111,
+   "macro_f1": 0.8297660527625684,
+   "f1_lo": 0.7927920345000025,
+   "f1_hi": 0.8655003304218004,
+   "kappa": 0.659593104272007
+  },
+  {
+   "tool": "majority",
+   "field": "relevant",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.5377777777777778,
+   "macro_f1": 0.34971098265895956,
+   "f1_lo": 0.33035714285714285,
+   "f1_hi": 0.36797752808988765,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9611111111111111,
+   "macro_f1": 0.9609653334985595,
+   "f1_lo": 0.9308324260537694,
+   "f1_hi": 0.9885262621111678,
+   "kappa": 0.9219330855018587
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.9333333333333333,
+   "macro_f1": 0.9321266968325792,
+   "f1_lo": 0.8825174825174825,
+   "f1_hi": 0.9744879880943944,
+   "kappa": 0.8642533936651584
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 0.9666666666666667,
+   "macro_f1": 0.9653723625282793,
+   "f1_lo": 0.9327474892395983,
+   "f1_hi": 0.9929026256165654,
+   "kappa": 0.9307479224376731
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 0.98,
+   "macro_f1": 0.9782092876858264,
+   "f1_lo": 0.9503968253968254,
+   "f1_hi": 1.0,
+   "kappa": 0.9564206856478792
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.9266666666666666,
+   "macro_f1": 0.9261116833101966,
+   "f1_lo": 0.8834285714285715,
+   "f1_hi": 0.9666295884315907,
+   "kappa": 0.8522299838796346
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.96,
+   "macro_f1": 0.9591206395348837,
+   "f1_lo": 0.9224441833137486,
+   "f1_hi": 0.9864718614718615,
+   "kappa": 0.9182412790697675
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "annotators_agreed",
+   "N": 439,
+   "accuracy": 0.9681093394077449,
+   "macro_f1": 0.9678811823236757,
+   "f1_lo": 0.9494006454587367,
+   "f1_hi": 0.983731183485881,
+   "kappa": 0.9357623646473515
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "adjudicated",
+   "N": 11,
+   "accuracy": 0.45454545454545453,
+   "macro_f1": 0.4107142857142857,
+   "f1_lo": 0.15384615384615385,
+   "f1_hi": 0.6857142857142857,
+   "kappa": -0.1785714285714286
+  },
+  {
+   "tool": "opus",
+   "field": "relevant",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.8181818181818182,
+   "macro_f1": 0.532312925170068,
+   "f1_lo": 0.4270833333333333,
+   "f1_hi": 0.6946867565424266,
+   "kappa": 0.07718120805369122
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9622222222222222,
+   "macro_f1": 0.942570669338027,
+   "f1_lo": 0.9109644766528456,
+   "f1_hi": 0.9708339698357588,
+   "kappa": 0.9181940671984943
+  },
+  {
+   "tool": "dictionary",
+   "field": "tone",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.5244444444444445,
+   "macro_f1": 0.38401735213515226,
+   "f1_lo": 0.3337719165270282,
+   "f1_hi": 0.43393599356348767,
+   "kappa": 0.06410356087700209
+  },
+  {
+   "tool": "tfidf_goldcv",
+   "field": "tone",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.6977777777777778,
+   "macro_f1": 0.47785764200858544,
+   "f1_lo": 0.4277472672859486,
+   "f1_hi": 0.530392798018549,
+   "kappa": 0.3176040319343473
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "tone",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.7533333333333333,
+   "macro_f1": 0.6300455535749653,
+   "f1_lo": 0.5662351520794163,
+   "f1_hi": 0.6894304910257644,
+   "kappa": 0.4778600100351229
+  },
+  {
+   "tool": "majority",
+   "field": "tone",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.6933333333333334,
+   "macro_f1": 0.27296587926509186,
+   "f1_lo": 0.2634272927249309,
+   "f1_hi": 0.2825437473324797,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9555555555555556,
+   "macro_f1": 0.9444281811085089,
+   "f1_lo": 0.8957005954661419,
+   "f1_hi": 0.9809727195225917,
+   "kappa": 0.9070847851335656
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.9416666666666667,
+   "macro_f1": 0.9063846007242233,
+   "f1_lo": 0.8180880188397445,
+   "f1_hi": 0.9697642492501469,
+   "kappa": 0.8759415152857776
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 0.9866666666666667,
+   "macro_f1": 0.9883083373649412,
+   "f1_lo": 0.9677131461697104,
+   "f1_hi": 1.0,
+   "kappa": 0.969129450504219
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 0.9866666666666667,
+   "macro_f1": 0.9718709341660161,
+   "f1_lo": 0.9196175016623056,
+   "f1_hi": 1.0,
+   "kappa": 0.9583333333333334
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.9333333333333333,
+   "macro_f1": 0.9073078736445073,
+   "f1_lo": 0.8377981737226571,
+   "f1_hi": 0.9608353314395545,
+   "kappa": 0.8621830209481809
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.9666666666666667,
+   "macro_f1": 0.9561327561327561,
+   "f1_lo": 0.8843699561262194,
+   "f1_hi": 0.9949019462053917,
+   "kappa": 0.9362407549094619
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "annotators_agreed",
+   "N": 439,
+   "accuracy": 0.9772209567198178,
+   "macro_f1": 0.970238611212242,
+   "f1_lo": 0.9461338450456,
+   "f1_hi": 0.9880703441723692,
+   "kappa": 0.9497952928798518
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "adjudicated",
+   "N": 11,
+   "accuracy": 0.36363636363636365,
+   "macro_f1": 0.37566137566137564,
+   "f1_lo": 0.08333333333333333,
+   "f1_hi": 0.6428571428571429,
+   "kappa": 0.07228915662650592
+  },
+  {
+   "tool": "opus",
+   "field": "tone",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.8545454545454545,
+   "macro_f1": 0.8052768487551095,
+   "f1_lo": 0.6489572357227663,
+   "f1_hi": 0.9212279066298754,
+   "kappa": 0.7541899441340782
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9777777777777777,
+   "macro_f1": 0.935717958973773,
+   "f1_lo": 0.8934637681800274,
+   "f1_hi": 0.970578620464204,
+   "kappa": 0.8714652956298201
+  },
+  {
+   "tool": "dictionary",
+   "field": "emotional",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8911111111111111,
+   "macro_f1": 0.6436363636363636,
+   "f1_lo": 0.5668365656214988,
+   "f1_hi": 0.7142947730772714,
+   "kappa": 0.28985507246376807
+  },
+  {
+   "tool": "tfidf_goldcv",
+   "field": "emotional",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8666666666666667,
+   "macro_f1": 0.5352839931153184,
+   "f1_lo": 0.48031228311601,
+   "f1_hi": 0.5972461273666092,
+   "kappa": 0.07692307692307687
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "emotional",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9155555555555556,
+   "macro_f1": 0.7505252100840336,
+   "f1_lo": 0.6771351457668605,
+   "f1_hi": 0.8184033756636533,
+   "kappa": 0.5013123359580053
+  },
+  {
+   "tool": "majority",
+   "field": "emotional",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9,
+   "macro_f1": 0.47368421052631576,
+   "f1_lo": 0.4655581947743468,
+   "f1_hi": 0.4809688581314879,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9833333333333333,
+   "macro_f1": 0.9525274725274725,
+   "f1_lo": 0.8838859501999743,
+   "f1_hi": 1.0,
+   "kappa": 0.9050632911392406
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.975,
+   "macro_f1": 0.8933333333333333,
+   "f1_lo": 0.7153507285665877,
+   "f1_hi": 1.0,
+   "kappa": 0.7872340425531915
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 0.9733333333333334,
+   "macro_f1": 0.9368686868686869,
+   "f1_lo": 0.8612681122186826,
+   "f1_hi": 0.986426567731427,
+   "kappa": 0.8737373737373737
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 0.9933333333333333,
+   "macro_f1": 0.9528153507392261,
+   "f1_lo": 0.7988345548480115,
+   "f1_hi": 1.0,
+   "kappa": 0.9056603773584906
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.98,
+   "macro_f1": 0.9345454545454546,
+   "f1_lo": 0.8351907078951499,
+   "f1_hi": 1.0,
+   "kappa": 0.8691099476439791
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.96,
+   "macro_f1": 0.9279999999999999,
+   "f1_lo": 0.8612395929694727,
+   "f1_hi": 0.9767369727047146,
+   "kappa": 0.8560460652591171
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "annotators_agreed",
+   "N": 446,
+   "accuracy": 0.9820627802690582,
+   "macro_f1": 0.9450738916256158,
+   "f1_lo": 0.9032126552466956,
+   "f1_hi": 0.9791699647097507,
+   "kappa": 0.8901545471337972
+  },
+  {
+   "tool": "opus",
+   "field": "emotional",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.9272727272727272,
+   "macro_f1": 0.8934108527131783,
+   "f1_lo": 0.7772129186602871,
+   "f1_hi": 0.9754855949981277,
+   "kappa": 0.7872340425531915
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9955555555555555,
+   "macro_f1": 0.9915717275052313,
+   "f1_lo": 0.9777729696645713,
+   "f1_hi": 1.0,
+   "kappa": 0.9810358632896455
+  },
+  {
+   "tool": "dictionary",
+   "field": "frame_price",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8444444444444444,
+   "macro_f1": 0.33891448631451926,
+   "f1_lo": 0.3052208835341365,
+   "f1_hi": 0.3774183436775124,
+   "kappa": 0.03097794321223124
+  },
+  {
+   "tool": "tfidf_goldcv",
+   "field": "frame_price",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9133333333333333,
+   "macro_f1": 0.7307268083130153,
+   "f1_lo": 0.6282798716539333,
+   "f1_hi": 0.8104484668592625,
+   "kappa": 0.6272460813049573
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "frame_price",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9444444444444444,
+   "macro_f1": 0.8388052988961302,
+   "f1_lo": 0.7638930327439022,
+   "f1_hi": 0.8993013755070032,
+   "kappa": 0.7810900741374949
+  },
+  {
+   "tool": "majority",
+   "field": "frame_price",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8688888888888889,
+   "macro_f1": 0.3099484740388427,
+   "f1_lo": 0.30390971382507054,
+   "f1_hi": 0.3153786104605777,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9944444444444445,
+   "macro_f1": 0.9920673354087398,
+   "f1_lo": 0.9710786410073652,
+   "f1_hi": 1.0,
+   "kappa": 0.9819639278557114
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.9916666666666667,
+   "macro_f1": 0.9860745421566905,
+   "f1_lo": 0.6296239131553224,
+   "f1_hi": 1.0,
+   "kappa": 0.9611273080660836
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 1.0,
+   "macro_f1": 1.0,
+   "f1_lo": 1.0,
+   "f1_hi": 1.0,
+   "kappa": 1.0
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 1.0,
+   "macro_f1": 1.0,
+   "f1_lo": 0.3333333333333333,
+   "f1_hi": 1.0,
+   "kappa": 1.0
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.9933333333333333,
+   "macro_f1": 0.9871985575839531,
+   "f1_lo": 0.9532423023058565,
+   "f1_hi": 1.0,
+   "kappa": 0.9748743718592965
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.9933333333333333,
+   "macro_f1": 0.9925087787748733,
+   "f1_lo": 0.9745731585913319,
+   "f1_hi": 1.0,
+   "kappa": 0.9815634218289085
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "annotators_agreed",
+   "N": 448,
+   "accuracy": 0.9955357142857143,
+   "macro_f1": 0.9912109771444809,
+   "f1_lo": 0.97681675044473,
+   "f1_hi": 1.0,
+   "kappa": 0.9804511934371863
+  },
+  {
+   "tool": "opus",
+   "field": "frame_price",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.9818181818181818,
+   "macro_f1": 0.980110919869956,
+   "f1_lo": 0.6666666666666666,
+   "f1_hi": 1.0,
+   "kappa": 0.9535472972972973
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9333333333333333,
+   "macro_f1": 0.9114173257694916,
+   "f1_lo": 0.871800299636438,
+   "f1_hi": 0.9429196547331207,
+   "kappa": 0.8619293078055965
+  },
+  {
+   "tool": "dictionary",
+   "field": "frame_unit",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.5355555555555556,
+   "macro_f1": 0.40712455903057515,
+   "f1_lo": 0.35709283460568597,
+   "f1_hi": 0.45791702372463283,
+   "kappa": 0.10998183057006583
+  },
+  {
+   "tool": "tfidf_goldcv",
+   "field": "frame_unit",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.6711111111111111,
+   "macro_f1": 0.5277122823239329,
+   "f1_lo": 0.46110999275113645,
+   "f1_hi": 0.592314849854548,
+   "kappa": 0.27469942498693145
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "frame_unit",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.7488888888888889,
+   "macro_f1": 0.6195450979146903,
+   "f1_lo": 0.5603572887111323,
+   "f1_hi": 0.6752489310376498,
+   "kappa": 0.4840496773408012
+  },
+  {
+   "tool": "majority",
+   "field": "frame_unit",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.68,
+   "macro_f1": 0.2698412698412698,
+   "f1_lo": 0.2601626016260163,
+   "f1_hi": 0.2800687285223368,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9166666666666666,
+   "macro_f1": 0.8970028766630708,
+   "f1_lo": 0.8311951411501806,
+   "f1_hi": 0.950115056725031,
+   "kappa": 0.8396579369321219
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.95,
+   "macro_f1": 0.927936507936508,
+   "f1_lo": 0.8634040539565098,
+   "f1_hi": 0.977819473199908,
+   "kappa": 0.8767967145790554
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 0.94,
+   "macro_f1": 0.9106082036775106,
+   "f1_lo": 0.8395737198206028,
+   "f1_hi": 0.9633822974835835,
+   "kappa": 0.8759191176470589
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 0.9266666666666666,
+   "macro_f1": 0.873362625575015,
+   "f1_lo": 0.784743594684998,
+   "f1_hi": 0.9440011453941929,
+   "kappa": 0.8153122901276024
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.92,
+   "macro_f1": 0.9134773038654179,
+   "f1_lo": 0.8602964983597204,
+   "f1_hi": 0.9585493119786354,
+   "kappa": 0.8435870698644421
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.9533333333333334,
+   "macro_f1": 0.932795061598307,
+   "f1_lo": 0.869714101487815,
+   "f1_hi": 0.9772609366974988,
+   "kappa": 0.9109188088572155
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "annotators_agreed",
+   "N": 430,
+   "accuracy": 0.9511627906976744,
+   "macro_f1": 0.9328967225139255,
+   "f1_lo": 0.8999968814933494,
+   "f1_hi": 0.9609002060591489,
+   "kappa": 0.8984857171764865
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "adjudicated",
+   "N": 20,
+   "accuracy": 0.55,
+   "macro_f1": 0.452991452991453,
+   "f1_lo": 0.19753086419753085,
+   "f1_hi": 0.6,
+   "kappa": 0.22413793103448287
+  },
+  {
+   "tool": "opus",
+   "field": "frame_unit",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.8,
+   "macro_f1": 0.793939393939394,
+   "f1_lo": 0.666950127409413,
+   "f1_hi": 0.8919744687391746,
+   "kappa": 0.6815789473684211
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9288888888888889,
+   "macro_f1": 0.9127663535175355,
+   "f1_lo": 0.8794985862153161,
+   "f1_hi": 0.9409617381752323,
+   "kappa": 0.8708010335917313
+  },
+  {
+   "tool": "dictionary",
+   "field": "frame_time",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.33555555555555555,
+   "macro_f1": 0.30829257785153746,
+   "f1_lo": 0.2645524737994036,
+   "f1_hi": 0.3483405574257713,
+   "kappa": 0.10735610222116065
+  },
+  {
+   "tool": "tfidf_goldcv",
+   "field": "frame_time",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.6288888888888889,
+   "macro_f1": 0.5243217506534593,
+   "f1_lo": 0.46928643693639066,
+   "f1_hi": 0.5759766302116389,
+   "kappa": 0.32776942893945893
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "frame_time",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.7644444444444445,
+   "macro_f1": 0.7149435920622361,
+   "f1_lo": 0.6650270080331584,
+   "f1_hi": 0.7609666412725506,
+   "kappa": 0.5837260446120013
+  },
+  {
+   "tool": "majority",
+   "field": "frame_time",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.5911111111111111,
+   "macro_f1": 0.24767225325884545,
+   "f1_lo": 0.23625059780009564,
+   "f1_hi": 0.25905797101449274,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9444444444444444,
+   "macro_f1": 0.9356078016220285,
+   "f1_lo": 0.8883587466583275,
+   "f1_hi": 0.9715112895691262,
+   "kappa": 0.9063085571517802
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.8833333333333333,
+   "macro_f1": 0.8429177410478541,
+   "f1_lo": 0.7365140642430292,
+   "f1_hi": 0.9223318405450598,
+   "kappa": 0.7741024606696248
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 0.9466666666666667,
+   "macro_f1": 0.9298845049562834,
+   "f1_lo": 0.8703228813554158,
+   "f1_hi": 0.9747616599813486,
+   "kappa": 0.8967208882003614
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 0.9533333333333334,
+   "macro_f1": 0.9327176976709688,
+   "f1_lo": 0.8697684276096406,
+   "f1_hi": 0.9781492638946396,
+   "kappa": 0.8954599761051374
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.9066666666666666,
+   "macro_f1": 0.868011988011988,
+   "f1_lo": 0.7792951879116929,
+   "f1_hi": 0.9333274671410519,
+   "kappa": 0.8282630029440629
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.9266666666666666,
+   "macro_f1": 0.9214786291875242,
+   "f1_lo": 0.8696009791885956,
+   "f1_hi": 0.9634862300673791,
+   "kappa": 0.8812864234837039
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "annotators_agreed",
+   "N": 432,
+   "accuracy": 0.9537037037037037,
+   "macro_f1": 0.9424385072094997,
+   "f1_lo": 0.9131054760794411,
+   "f1_hi": 0.9664958658759497,
+   "kappa": 0.9145349872395988
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "adjudicated",
+   "N": 18,
+   "accuracy": 0.3333333333333333,
+   "macro_f1": 0.337037037037037,
+   "f1_lo": 0.11764705882352942,
+   "f1_hi": 0.534940476190476,
+   "kappa": -0.0046511627906977715
+  },
+  {
+   "tool": "opus",
+   "field": "frame_time",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.6727272727272727,
+   "macro_f1": 0.629199604743083,
+   "f1_lo": 0.49868597761685324,
+   "f1_hi": 0.7473434867380346,
+   "kappa": 0.47452229299363047
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.98,
+   "macro_f1": 0.8675632097869317,
+   "f1_lo": 0.6595498422137295,
+   "f1_hi": 0.9578464155815636,
+   "kappa": 0.8992437058413772
+  },
+  {
+   "tool": "dictionary",
+   "field": "attr_target",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8911111111111111,
+   "macro_f1": 0.13727810650887573,
+   "f1_lo": 0.11700189474958066,
+   "f1_hi": 0.16232212467293416,
+   "kappa": 0.09330153378017192
+  },
+  {
+   "tool": "majority",
+   "field": "attr_target",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8933333333333333,
+   "macro_f1": 0.11795774647887323,
+   "f1_lo": 0.11591179976162097,
+   "f1_hi": 0.11979166666666667,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9777777777777777,
+   "macro_f1": 0.8363095238095238,
+   "f1_lo": 0.5207543978067561,
+   "f1_hi": 0.8562556826273182,
+   "kappa": 0.8922317018410417
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.975,
+   "macro_f1": 0.7055555555555556,
+   "f1_lo": 0.31761186190064983,
+   "f1_hi": 0.832572298325723,
+   "kappa": 0.8411297440423654
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 0.9866666666666667,
+   "macro_f1": 0.9444959802102659,
+   "f1_lo": 0.5231464550312477,
+   "f1_hi": 1.0,
+   "kappa": 0.9394550958627649
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 0.9933333333333333,
+   "macro_f1": 0.9157832744405182,
+   "f1_lo": 0.4982517482517482,
+   "f1_hi": 1.0,
+   "kappa": 0.9384993849938499
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.9866666666666667,
+   "macro_f1": 0.9162154031287605,
+   "f1_lo": 0.4422586174911346,
+   "f1_hi": 0.9578755411255411,
+   "kappa": 0.9090081892629663
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.96,
+   "macro_f1": 0.8103242180139438,
+   "f1_lo": 0.4214013146702371,
+   "f1_hi": 0.8562920321637426,
+   "kappa": 0.8773507767784138
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "annotators_agreed",
+   "N": 443,
+   "accuracy": 0.981941309255079,
+   "macro_f1": 0.8863081480363393,
+   "f1_lo": 0.6393902085147342,
+   "f1_hi": 0.9658652228719928,
+   "kappa": 0.9037479630635524
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "adjudicated",
+   "N": 7,
+   "accuracy": 0.8571428571428571,
+   "macro_f1": 0.9642857142857143,
+   "f1_lo": 0.39285714285714285,
+   "f1_hi": 1.0,
+   "kappa": 0.7941176470588235
+  },
+  {
+   "tool": "opus",
+   "field": "attr_target",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.9454545454545454,
+   "macro_f1": 0.7722832722832722,
+   "f1_lo": 0.32838283828382836,
+   "f1_hi": 0.8315018315018315,
+   "kappa": 0.8216216216216217
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.9822222222222222,
+   "macro_f1": 0.9606472143785577,
+   "f1_lo": 0.928797719281136,
+   "f1_hi": 0.9842837865183337,
+   "kappa": 0.9086433538039892
+  },
+  {
+   "tool": "dictionary",
+   "field": "attr_dir",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8933333333333333,
+   "macro_f1": 0.36357338721316207,
+   "f1_lo": 0.3140950137416569,
+   "f1_hi": 0.4205500517257664,
+   "kappa": 0.10865348904386585
+  },
+  {
+   "tool": "tfidf_goldcv",
+   "field": "attr_dir",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8822222222222222,
+   "macro_f1": 0.43724655312246546,
+   "f1_lo": 0.3811424628612129,
+   "f1_hi": 0.48716700005468266,
+   "kappa": 0.26903273262228755
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "attr_dir",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.86,
+   "macro_f1": 0.5465877324708329,
+   "f1_lo": 0.45755213299699987,
+   "f1_hi": 0.6359208040484317,
+   "kappa": 0.3795005362341045
+  },
+  {
+   "tool": "majority",
+   "field": "attr_dir",
+   "subset": "all",
+   "N": 450,
+   "accuracy": 0.8933333333333333,
+   "macro_f1": 0.3145539906103286,
+   "f1_lo": 0.3090981326976559,
+   "f1_hi": 0.3194444444444445,
+   "kappa": 0.0
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "source:national",
+   "N": 180,
+   "accuracy": 0.9777777777777777,
+   "macro_f1": 0.951388888888889,
+   "f1_lo": 0.8869730790043289,
+   "f1_hi": 0.9899327899327899,
+   "kappa": 0.8900763358778626
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "source:local",
+   "N": 120,
+   "accuracy": 0.9833333333333333,
+   "macro_f1": 0.9414141414141414,
+   "f1_lo": 0.7712324644434736,
+   "f1_hi": 1.0,
+   "kappa": 0.8933333333333333
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "source:reddit",
+   "N": 150,
+   "accuracy": 0.9866666666666667,
+   "macro_f1": 0.976641414141414,
+   "f1_lo": 0.6282051282051282,
+   "f1_hi": 1.0,
+   "kappa": 0.937733499377335
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "period:2010-19",
+   "N": 150,
+   "accuracy": 0.9933333333333333,
+   "macro_f1": 0.9617851066614317,
+   "f1_lo": 0.6666666666666666,
+   "f1_hi": 1.0,
+   "kappa": 0.9385749385749386
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "period:2020-24",
+   "N": 150,
+   "accuracy": 0.9933333333333333,
+   "macro_f1": 0.9731556049245581,
+   "f1_lo": 0.8865248226950354,
+   "f1_hi": 1.0,
+   "kappa": 0.953860350661335
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "period:2025-26",
+   "N": 150,
+   "accuracy": 0.96,
+   "macro_f1": 0.953341740226986,
+   "f1_lo": 0.6019109220863607,
+   "f1_hi": 0.9839571859428271,
+   "kappa": 0.8702796194868838
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "annotators_agreed",
+   "N": 444,
+   "accuracy": 0.9842342342342343,
+   "macro_f1": 0.9642085048980626,
+   "f1_lo": 0.9324870588523345,
+   "f1_hi": 0.9872722939389605,
+   "kappa": 0.915940931465354
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "adjudicated",
+   "N": 6,
+   "accuracy": 0.8333333333333334,
+   "macro_f1": 0.8412698412698413,
+   "f1_lo": 0.26666666666666666,
+   "f1_hi": 1.0,
+   "kappa": 0.7142857142857143
+  },
+  {
+   "tool": "opus",
+   "field": "attr_dir",
+   "subset": "any_disagreement",
+   "N": 55,
+   "accuracy": 0.9454545454545454,
+   "macro_f1": 0.9301874595992242,
+   "f1_lo": 0.5322810772248975,
+   "f1_hi": 1.0,
+   "kappa": 0.8129251700680272
+  },
+  {
+   "tool": "opus",
+   "field": "topic:layoffs",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9903846153846154,
+   "macro_f1": 0.9710387078808131,
+   "f1_lo": 0.9217835079237174,
+   "f1_hi": 1.0,
+   "kappa": 0.9420935412026726
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:layoffs",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9423076923076923,
+   "macro_f1": 0.7844559585492228,
+   "f1_lo": 0.664051684356253,
+   "f1_hi": 0.8848010127383495,
+   "kappa": 0.5726027397260274
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:layoffs",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9326923076923077,
+   "macro_f1": 0.8351449275362319,
+   "f1_lo": 0.747842829637025,
+   "f1_hi": 0.9085316432777911,
+   "kappa": 0.6714801444043321
+  },
+  {
+   "tool": "opus",
+   "field": "topic:hiring",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9903846153846154,
+   "macro_f1": 0.9679704342469972,
+   "f1_lo": 0.9115646258503401,
+   "f1_hi": 1.0,
+   "kappa": 0.9359605911330049
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:hiring",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9182692307692307,
+   "macro_f1": 0.5312209996022803,
+   "f1_lo": 0.4707379134860051,
+   "f1_hi": 0.6383423963478948,
+   "kappa": 0.09703779366700727
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:hiring",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9615384615384616,
+   "macro_f1": 0.8718817369879889,
+   "f1_lo": 0.7734394637620444,
+   "f1_hi": 0.9470480309978434,
+   "kappa": 0.7438423645320198
+  },
+  {
+   "tool": "opus",
+   "field": "topic:prices_high",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9951923076923077,
+   "macro_f1": 0.9923346231803942,
+   "f1_lo": 0.9739275674047226,
+   "f1_hi": 1.0,
+   "kappa": 0.9846698113207547
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:prices_high",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.8701923076923077,
+   "macro_f1": 0.733371314627546,
+   "f1_lo": 0.6431800607568288,
+   "f1_hi": 0.8153409090909092,
+   "kappa": 0.47980733605038905
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:prices_high",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9278846153846154,
+   "macro_f1": 0.8891060956104496,
+   "f1_lo": 0.8299626799360227,
+   "f1_hi": 0.9403327596098681,
+   "kappa": 0.778283115406481
+  },
+  {
+   "tool": "opus",
+   "field": "topic:inflation_up",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 1.0,
+   "macro_f1": 1.0,
+   "f1_lo": 1.0,
+   "f1_hi": 1.0,
+   "kappa": 1.0
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:inflation_up",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9471153846153846,
+   "macro_f1": 0.48641975308641977,
+   "f1_lo": 0.47869674185463656,
+   "f1_hi": 0.49391727493917276,
+   "kappa": 0.0
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:inflation_up",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9567307692307693,
+   "macro_f1": 0.7928974444075672,
+   "f1_lo": 0.6547481294068529,
+   "f1_hi": 0.9009806721888984,
+   "kappa": 0.5858407079646017
+  },
+  {
+   "tool": "opus",
+   "field": "topic:growth",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9711538461538461,
+   "macro_f1": 0.9170212765957446,
+   "f1_lo": 0.839828872817592,
+   "f1_hi": 0.9735166793990323,
+   "kappa": 0.8340425531914893
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:growth",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9086538461538461,
+   "macro_f1": 0.6478659894858771,
+   "f1_lo": 0.5235684147076551,
+   "f1_hi": 0.7630208333333333,
+   "kappa": 0.3032440056417489
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:growth",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9230769230769231,
+   "macro_f1": 0.7966764418377321,
+   "f1_lo": 0.6885290556222005,
+   "f1_hi": 0.8822463768115942,
+   "kappa": 0.59375
+  },
+  {
+   "tool": "opus",
+   "field": "topic:recession",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9951923076923077,
+   "macro_f1": 0.9724247646824871,
+   "f1_lo": 0.8975050059580114,
+   "f1_hi": 1.0,
+   "kappa": 0.9448568398727466
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:recession",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9663461538461539,
+   "macro_f1": 0.7579384871155445,
+   "f1_lo": 0.570957095709571,
+   "f1_hi": 0.897536945812808,
+   "kappa": 0.5178807947019868
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:recession",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9423076923076923,
+   "macro_f1": 0.7346938775510203,
+   "f1_lo": 0.5863714702373062,
+   "f1_hi": 0.8468615697318898,
+   "kappa": 0.4702886247877759
+  },
+  {
+   "tool": "opus",
+   "field": "topic:rates",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 1.0,
+   "macro_f1": 1.0,
+   "f1_lo": 1.0,
+   "f1_hi": 1.0,
+   "kappa": 1.0
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:rates",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9278846153846154,
+   "macro_f1": 0.8475296877290719,
+   "f1_lo": 0.7660262540847218,
+   "f1_hi": 0.9135534518586932,
+   "kappa": 0.6957878315132605
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:rates",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9855769230769231,
+   "macro_f1": 0.9726495726495727,
+   "f1_lo": 0.9377325407347219,
+   "f1_hi": 1.0,
+   "kappa": 0.9453015427769986
+  },
+  {
+   "tool": "opus",
+   "field": "topic:tariffs",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9951923076923077,
+   "macro_f1": 0.9891886272675294,
+   "f1_lo": 0.9639826839826839,
+   "f1_hi": 1.0,
+   "kappa": 0.9783783783783784
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:tariffs",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9951923076923077,
+   "macro_f1": 0.9891886272675294,
+   "f1_lo": 0.9587301587301588,
+   "f1_hi": 1.0,
+   "kappa": 0.9783783783783784
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:tariffs",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 1.0,
+   "macro_f1": 1.0,
+   "f1_lo": 1.0,
+   "f1_hi": 1.0,
+   "kappa": 1.0
+  },
+  {
+   "tool": "opus",
+   "field": "topic:housing",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 1.0,
+   "macro_f1": 1.0,
+   "f1_lo": 1.0,
+   "f1_hi": 1.0,
+   "kappa": 1.0
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:housing",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9807692307692307,
+   "macro_f1": 0.9040147669589293,
+   "f1_lo": 0.781968423066048,
+   "f1_hi": 0.9787581002918906,
+   "kappa": 0.8081180811808119
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:housing",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9903846153846154,
+   "macro_f1": 0.9520073834794647,
+   "f1_lo": 0.8621238234124353,
+   "f1_hi": 1.0,
+   "kappa": 0.9040590405904059
+  },
+  {
+   "tool": "opus",
+   "field": "topic:markets",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9951923076923077,
+   "macro_f1": 0.9835430018197642,
+   "f1_lo": 0.9418982946724482,
+   "f1_hi": 1.0,
+   "kappa": 0.9670886075949368
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:markets",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9807692307692307,
+   "macro_f1": 0.9281519861830743,
+   "f1_lo": 0.8468296271302878,
+   "f1_hi": 0.9858532272325375,
+   "kappa": 0.8565022421524664
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:markets",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9711538461538461,
+   "macro_f1": 0.9039113027409917,
+   "f1_lo": 0.8175438596491228,
+   "f1_hi": 0.9710387078808131,
+   "kappa": 0.8078226054819834
+  },
+  {
+   "tool": "opus",
+   "field": "topic:income",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9903846153846154,
+   "macro_f1": 0.9557823129251701,
+   "f1_lo": 0.8746232670283303,
+   "f1_hi": 1.0,
+   "kappa": 0.9116022099447514
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:income",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9567307692307693,
+   "macro_f1": 0.7928974444075672,
+   "f1_lo": 0.6426799007444168,
+   "f1_hi": 0.9009806721888984,
+   "kappa": 0.5858407079646017
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:income",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9663461538461539,
+   "macro_f1": 0.8510485933503836,
+   "f1_lo": 0.7220843672456576,
+   "f1_hi": 0.9443998930767175,
+   "kappa": 0.7023712183156173
+  },
+  {
+   "tool": "opus",
+   "field": "topic:other",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.9759615384615384,
+   "macro_f1": 0.9584647949199249,
+   "f1_lo": 0.9195046439628483,
+   "f1_hi": 0.9908887273280209,
+   "kappa": 0.9169594378792718
+  },
+  {
+   "tool": "dictionary",
+   "field": "topic:other",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.8173076923076923,
+   "macro_f1": 0.4497354497354497,
+   "f1_lo": 0.4332425068119891,
+   "f1_hi": 0.4652956298200514,
+   "kappa": 0.0
+  },
+  {
+   "tool": "tfidf_opus_trained",
+   "field": "topic:other",
+   "subset": "all",
+   "N": 208,
+   "accuracy": 0.8557692307692307,
+   "macro_f1": 0.787321063394683,
+   "f1_lo": 0.7159763313609467,
+   "f1_hi": 0.8508318990246702,
+   "kappa": 0.5774647887323944
+  }
+ ],
+ "claims_vs_gold": {
+  "opus": {
+   "tp": 6,
+   "fp": 0,
+   "fn": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "dictionary_regex": {
+   "tp": 1,
+   "fp": 2,
+   "fn": 5,
+   "precision": 0.3333333333333333,
+   "recall": 0.16666666666666666,
+   "f1": 0.2222222222222222
+  }
+ },
+ "opus_vs_annotator_A": {
+  "relevant": 0.9016608391608392,
+  "tone": 0.9177746487956404,
+  "emotional": 0.8687051409231488,
+  "frame_price": 0.9810358632896455,
+  "frame_unit": 0.8469755160825732,
+  "frame_time": 0.8791059211233299,
+  "attr_target": 0.844724324057871,
+  "attr_dir": 0.8528116744244559
+ },
+ "opus_vs_annotator_B": {
+  "relevant": 0.9239335786019688,
+  "tone": 0.9321391255641609,
+  "emotional": 0.8687051409231488,
+  "frame_price": 0.9615088529638183,
+  "frame_unit": 0.8722355732668147,
+  "frame_time": 0.8779252721814301,
+  "attr_target": 0.9002905115958442,
+  "attr_dir": 0.9207965603077619
+ },
+ "test_retest": {
+  "relevant": {
+   "field": "relevant",
+   "N": 150,
+   "pct_agree": 0.9533333333333334,
+   "kappa": 0.9065004452359751,
+   "ac1": 0.9068694842343341,
+   "kappa_lo": 0.8396579369321219,
+   "kappa_hi": 0.96,
+   "ac1_lo": 0.8403497499197172,
+   "ac1_hi": 0.9605725623712799,
+   "support": {
+    "no": 157,
+    "yes": 143
+   }
+  },
+  "tone": {
+   "field": "tone",
+   "N": 150,
+   "pct_agree": 0.96,
+   "kappa": 0.9152063312605991,
+   "ac1": 0.9476538757942797,
+   "kappa_linear": 0.9068983862386948,
+   "alpha_ordinal": 0.8986022761965515,
+   "kappa_lo": 0.8452612558663389,
+   "kappa_hi": 0.9710648148148148,
+   "ac1_lo": 0.9020427273266092,
+   "ac1_hi": 0.9826943285050523,
+   "support": {
+    "neutral": 201,
+    "negative": 83,
+    "positive": 16
+   }
+  },
+  "emotional": {
+   "field": "emotional",
+   "N": 150,
+   "pct_agree": 0.9866666666666667,
+   "kappa": 0.9368952461085401,
+   "ac1": 0.9830966869506425,
+   "kappa_lo": 0.8318172818865767,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9568930300682992,
+   "ac1_hi": 1.0,
+   "support": {
+    "0": 264,
+    "1": 36
+   }
+  },
+  "frame_price": {
+   "field": "frame_price",
+   "N": 150,
+   "pct_agree": 0.9933333333333333,
+   "kappa": 0.9725526075022872,
+   "ac1": 0.9924118829912355,
+   "kappa_lo": 0.9036055652849946,
+   "kappa_hi": 1.0,
+   "ac1_lo": 0.9763802547663121,
+   "ac1_hi": 1.0,
+   "support": {
+    "none": 259,
+    "level": 31,
+    "rate": 10
+   }
+  },
+  "frame_unit": {
+   "field": "frame_unit",
+   "N": 150,
+   "pct_agree": 0.9266666666666666,
+   "kappa": 0.8490807646574591,
+   "ac1": 0.9032215493350148,
+   "kappa_lo": 0.7638598684839094,
+   "kappa_hi": 0.9261264355514396,
+   "ac1_lo": 0.855140927257146,
+   "ac1_hi": 0.9555706238509747,
+   "support": {
+    "none": 203,
+    "aggregate": 64,
+    "household": 33
+   }
+  },
+  "frame_time": {
+   "field": "frame_time",
+   "N": 150,
+   "pct_agree": 0.9533333333333334,
+   "kappa": 0.916607100309745,
+   "ac1": 0.9352041839584073,
+   "kappa_lo": 0.8547090852956696,
+   "kappa_hi": 0.966421415298594,
+   "ac1_lo": 0.8869743847116852,
+   "ac1_hi": 0.9731414953150924,
+   "support": {
+    "none": 175,
+    "current": 87,
+    "forecast": 38
+   }
+  },
+  "attr_target": {
+   "field": "attr_target",
+   "N": 150,
+   "pct_agree": 0.9533333333333334,
+   "kappa": 0.7429620563035495,
+   "ac1": 0.9518779073764294,
+   "kappa_lo": 0.5492991829899387,
+   "kappa_hi": 0.9090373392406302,
+   "ac1_lo": 0.9163685603096086,
+   "ac1_hi": 0.9860404435214499,
+   "support": {
+    "none": 271,
+    "president": 13,
+    "foreign_trade": 5,
+    "congress": 4,
+    "republicans": 3,
+    "business": 2,
+    "fed": 2
+   }
+  },
+  "attr_dir": {
+   "field": "attr_dir",
+   "N": 150,
+   "pct_agree": 0.9533333333333334,
+   "kappa": 0.7354497354497355,
+   "ac1": 0.9488198091710028,
+   "kappa_lo": 0.5369572981982697,
+   "kappa_hi": 0.9058634159387121,
+   "ac1_lo": 0.9040359780279345,
+   "ac1_hi": 0.9850699400668697,
+   "support": {
+    "none": 271,
+    "blame": 26,
+    "credit": 3
+   }
+  }
+ },
+ "test_retest_N": 150,
+ "source_tone_means": {
+  "W2_src_plain": -0.16,
+  "W3_src_fox": -0.16,
+  "W4_src_cnn": -0.16,
+  "W5_null": -0.16
+ },
+ "swaps": [
+  {
+   "comparison": "names: original vs swapped",
+   "field": "relevant",
+   "flips": 3,
+   "N": 100,
+   "rate": 0.03,
+   "ci_lo": 0.010254338223414816,
+   "ci_hi": 0.08452078080402699,
+   "p_vs_null": 0.72093855483014
+  },
+  {
+   "comparison": "names: original vs swapped",
+   "field": "tone",
+   "flips": 8,
+   "N": 100,
+   "rate": 0.08,
+   "ci_lo": 0.04109296948581091,
+   "ci_hi": 0.14998266879403072,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "names: original vs swapped",
+   "field": "attr_dir",
+   "flips": 7,
+   "N": 100,
+   "rate": 0.07,
+   "ci_lo": 0.034318824364064096,
+   "ci_hi": 0.13749671006529757,
+   "p_vs_null": 0.06485940210426507
+  },
+  {
+   "comparison": "names: original vs swapped",
+   "field": "attr_target",
+   "flips": 8,
+   "N": 100,
+   "rate": 0.08,
+   "ci_lo": 0.04109296948581091,
+   "ci_hi": 0.14998266879403072,
+   "p_vs_null": 0.03489915197211575
+  },
+  {
+   "comparison": "names: original vs swapped",
+   "field": "frame_price",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": 0.2116478526957317
+  },
+  {
+   "comparison": "names: original vs swapped",
+   "field": "frame_unit",
+   "flips": 6,
+   "N": 100,
+   "rate": 0.06,
+   "ci_lo": 0.02778574526665662,
+   "ci_hi": 0.12476968531222507,
+   "p_vs_null": 0.005426957925557461
+  },
+  {
+   "comparison": "source: plain vs Fox News",
+   "field": "relevant",
+   "flips": 4,
+   "N": 100,
+   "rate": 0.04,
+   "ci_lo": 0.015663050551848016,
+   "ci_hi": 0.09837217232607373,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: plain vs Fox News",
+   "field": "tone",
+   "flips": 2,
+   "N": 100,
+   "rate": 0.02,
+   "ci_lo": 0.005501852234968185,
+   "ci_hi": 0.07001316294199365,
+   "p_vs_null": 0.10054504035067333
+  },
+  {
+   "comparison": "source: plain vs Fox News",
+   "field": "attr_dir",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: plain vs Fox News",
+   "field": "attr_target",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: plain vs Fox News",
+   "field": "frame_price",
+   "flips": 4,
+   "N": 100,
+   "rate": 0.04,
+   "ci_lo": 0.015663050551848016,
+   "ci_hi": 0.09837217232607373,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: plain vs Fox News",
+   "field": "frame_unit",
+   "flips": 7,
+   "N": 100,
+   "rate": 0.07,
+   "ci_lo": 0.034318824364064096,
+   "ci_hi": 0.13749671006529757,
+   "p_vs_null": 0.011907621975648862
+  },
+  {
+   "comparison": "source: plain vs CNN",
+   "field": "relevant",
+   "flips": 4,
+   "N": 100,
+   "rate": 0.04,
+   "ci_lo": 0.015663050551848016,
+   "ci_hi": 0.09837217232607373,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: plain vs CNN",
+   "field": "tone",
+   "flips": 6,
+   "N": 100,
+   "rate": 0.06,
+   "ci_lo": 0.02778574526665662,
+   "ci_hi": 0.12476968531222507,
+   "p_vs_null": 0.7828074095748018
+  },
+  {
+   "comparison": "source: plain vs CNN",
+   "field": "attr_dir",
+   "flips": 2,
+   "N": 100,
+   "rate": 0.02,
+   "ci_lo": 0.005501852234968185,
+   "ci_hi": 0.07001316294199365,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: plain vs CNN",
+   "field": "attr_target",
+   "flips": 2,
+   "N": 100,
+   "rate": 0.02,
+   "ci_lo": 0.005501852234968185,
+   "ci_hi": 0.07001316294199365,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: plain vs CNN",
+   "field": "frame_price",
+   "flips": 3,
+   "N": 100,
+   "rate": 0.03,
+   "ci_lo": 0.010254338223414816,
+   "ci_hi": 0.08452078080402699,
+   "p_vs_null": 0.72093855483014
+  },
+  {
+   "comparison": "source: plain vs CNN",
+   "field": "frame_unit",
+   "flips": 6,
+   "N": 100,
+   "rate": 0.06,
+   "ci_lo": 0.02778574526665662,
+   "ci_hi": 0.12476968531222507,
+   "p_vs_null": 0.005426957925557461
+  },
+  {
+   "comparison": "source: Fox News vs CNN",
+   "field": "relevant",
+   "flips": 2,
+   "N": 100,
+   "rate": 0.02,
+   "ci_lo": 0.005501852234968185,
+   "ci_hi": 0.07001316294199365,
+   "p_vs_null": 0.4447540317754331
+  },
+  {
+   "comparison": "source: Fox News vs CNN",
+   "field": "tone",
+   "flips": 4,
+   "N": 100,
+   "rate": 0.04,
+   "ci_lo": 0.015663050551848016,
+   "ci_hi": 0.09837217232607373,
+   "p_vs_null": 0.372704618517916
+  },
+  {
+   "comparison": "source: Fox News vs CNN",
+   "field": "attr_dir",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: Fox News vs CNN",
+   "field": "attr_target",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": 1.0
+  },
+  {
+   "comparison": "source: Fox News vs CNN",
+   "field": "frame_price",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": 0.2116478526957317
+  },
+  {
+   "comparison": "source: Fox News vs CNN",
+   "field": "frame_unit",
+   "flips": 3,
+   "N": 100,
+   "rate": 0.03,
+   "ci_lo": 0.010254338223414816,
+   "ci_hi": 0.08452078080402699,
+   "p_vs_null": 0.00022398367242939325
+  },
+  {
+   "comparison": "null: plain vs 'Headline:'",
+   "field": "relevant",
+   "flips": 5,
+   "N": 100,
+   "rate": 0.05,
+   "ci_lo": 0.02154336145631356,
+   "ci_hi": 0.11175196527208817,
+   "p_vs_null": null
+  },
+  {
+   "comparison": "null: plain vs 'Headline:'",
+   "field": "tone",
+   "flips": 8,
+   "N": 100,
+   "rate": 0.08,
+   "ci_lo": 0.04109296948581091,
+   "ci_hi": 0.14998266879403072,
+   "p_vs_null": null
+  },
+  {
+   "comparison": "null: plain vs 'Headline:'",
+   "field": "attr_dir",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": null
+  },
+  {
+   "comparison": "null: plain vs 'Headline:'",
+   "field": "attr_target",
+   "flips": 1,
+   "N": 100,
+   "rate": 0.01,
+   "ci_lo": 0.0017673865655472645,
+   "ci_hi": 0.0544875247609346,
+   "p_vs_null": null
+  },
+  {
+   "comparison": "null: plain vs 'Headline:'",
+   "field": "frame_price",
+   "flips": 5,
+   "N": 100,
+   "rate": 0.05,
+   "ci_lo": 0.02154336145631356,
+   "ci_hi": 0.11175196527208817,
+   "p_vs_null": null
+  },
+  {
+   "comparison": "null: plain vs 'Headline:'",
+   "field": "frame_unit",
+   "flips": 20,
+   "N": 100,
+   "rate": 0.2,
+   "ci_lo": 0.1333659225590988,
+   "ci_hi": 0.28883096192650237,
+   "p_vs_null": null
+  }
+ ],
+ "minimal_pairs": {
+  "items": 140,
+  "checks": 654,
+  "accuracy": 1.0,
+  "by_field": {
+   "attr_dir": 1.0,
+   "attr_target": 1.0,
+   "claim": 1.0,
+   "emotional": 1.0,
+   "frame_price": 1.0,
+   "frame_time": 1.0,
+   "frame_unit": 1.0,
+   "relevant": 1.0,
+   "tone": 1.0,
+   "topic_has": 1.0
+  }
+ }
+}

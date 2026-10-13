@@ -1,0 +1,13 @@
+step,n
+downloaded posts,156491
+unique posts,156318
+not removed or deleted,123130
+English (ASCII letters >= 80%),122790
+an economic term in the text,72701
+not promotional,72444
+at least 5 words,71883
+score >= 1,52872
+"not a bot (AutoModerator, > 20 posts a day)",52856
+not an exact duplicate or crosspost (title),51253
+not a near duplicate (MinHash 0.8),51142
+at most 5 posts per author per day,50926

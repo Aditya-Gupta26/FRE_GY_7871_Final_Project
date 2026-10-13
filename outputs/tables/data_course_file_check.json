@@ -1,0 +1,48 @@
+{
+ "unemployment": {
+  "N_overlap": 584,
+  "max_abs_diff": 0.0,
+  "n_diff_gt_0.05": 0,
+  "file_dates_not_in_official": [],
+  "file_last": "2026-09-01",
+  "official_last": "2026-09-01",
+  "missing_months_in_file": [
+   "2025-10-01"
+  ]
+ },
+ "sentiment": {
+  "N_overlap": 586,
+  "max_abs_diff": 0.0,
+  "n_diff_gt_0.05": 0,
+  "file_dates_not_in_official": [],
+  "file_last": "2026-10-01",
+  "official_last": "2026-10-01"
+ },
+ "pce_yoy": {
+  "N_overlap": 584,
+  "max_abs_diff": 2.2533111274816253,
+  "n_diff_gt_0.05": 551,
+  "file_dates_not_in_official": [],
+  "file_last": "2026-08-01",
+  "official_last": "2026-08-01"
+ },
+ "pce_yoy_vs_core": {
+  "N_overlap": 584,
+  "max_abs_diff": 1.3507135310675267e-05,
+  "n_diff_gt_0.05": 0,
+  "file_dates_not_in_official": [],
+  "file_last": "2026-08-01",
+  "official_last": "2026-08-01"
+ },
+ "gdp_qoq": {
+  "N_overlap": 194,
+  "max_abs_diff": 1.1,
+  "n_diff_gt_0.05": 148,
+  "file_dates_not_in_official": [
+   "2026-07-01"
+  ],
+  "file_last": "2026-07-01",
+  "official_last": "2026-04-01",
+  "gdpnow_latest_q3_2026": 3.5862
+ }
+}

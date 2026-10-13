@@ -1,0 +1,7 @@
+{
+ "items_sent": 9381,
+ "items_with_valid_code": 9373,
+ "items_never_valid": 8,
+ "first_pass_problem_items": 111,
+ "batches_with_output": 52
+}

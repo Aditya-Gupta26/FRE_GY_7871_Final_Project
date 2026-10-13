@@ -1,0 +1,11 @@
+step,n
+downloaded items,664604
+source is the queried outlet (site: pulls),664584
+dated inside its window (+-1 day),645996
+English (ASCII letters >= 80%),645929
+not promotional,645599
+at least 4 words,635714
+not an exact duplicate within outlet,602564
+not a near duplicate within outlet (MinHash 0.8),602190
+final headlines (unique links),602189
+  of which with an economic term in the title (coding frame),132999

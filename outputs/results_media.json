@@ -1,0 +1,92 @@
+{
+ "coded_counts": {
+  "news_coded": 5720,
+  "news_relevant": 2447,
+  "reddit_coded": 1318,
+  "reddit_relevant": 616,
+  "relevance_rate_news": 0.4277972027972028,
+  "relevance_rate_reddit": 0.4673748103186646
+ },
+ "coverage": {
+  "months_covered": 10,
+  "months": 202,
+  "months_covered_2026": 10,
+  "median_items_per_month_history": 8.0,
+  "median_items_per_month_2026": 73.0,
+  "quarters_covered": 50,
+  "quarters": 68,
+  "median_items_per_quarter": 26.0
+ },
+ "split_half_news_NEGNET": {
+  "r_half": 0.12728541710573174,
+  "spearman_brown": 0.2258264236798749,
+  "reps": 200,
+  "r_min": 0.0022539141496845353,
+  "r_max": 0.25165313333975586
+ },
+ "split_half_news_SAL_prices_high": {
+  "r_half": 0.34222478939092954,
+  "spearman_brown": 0.509936624767932,
+  "reps": 200,
+  "r_min": 0.1801221721970098,
+  "r_max": 0.49757375363876594
+ },
+ "split_half_reddit_NEGNET": {
+  "r_half": 0.09958487174610907,
+  "spearman_brown": 0.18113176036693043,
+  "reps": 200,
+  "r_min": -0.22575408863839758,
+  "r_max": 0.34389837191157996
+ },
+ "convergent_validity": [
+  {
+   "a": "TC_NEGNET",
+   "b": "SFFED",
+   "freq": "monthly",
+   "N": 202,
+   "r_levels": -0.15947940163975574,
+   "r_changes": -0.05918198395280473
+  },
+  {
+   "a": "DICT_NEGNET",
+   "b": "SFFED",
+   "freq": "monthly",
+   "N": 202,
+   "r_levels": -0.4649709791208242,
+   "r_changes": -0.17982875771409362
+  },
+  {
+   "a": "TC_NEGNET",
+   "b": "DICT_NEGNET",
+   "freq": "monthly",
+   "N": 202,
+   "r_levels": 0.2829032172048085,
+   "r_changes": 0.10229418139393522
+  },
+  {
+   "a": "ownQ_NEGNET",
+   "b": "SFFED",
+   "freq": "quarterly",
+   "N": 50,
+   "r_levels": -0.28426568007276454,
+   "r_changes": -0.15984283848720243
+  },
+  {
+   "a": "ownQ_NEGNET",
+   "b": "TC_NEGNET",
+   "freq": "quarterly",
+   "N": 50,
+   "r_levels": 0.6402278321169871,
+   "r_changes": 0.52929938114911
+  },
+  {
+   "a": "ownQ_NEGNET",
+   "b": "DICT_NEGNET",
+   "freq": "quarterly",
+   "N": 50,
+   "r_levels": 0.30395428324002244,
+   "r_changes": 0.20830969910108316
+  }
+ ],
+ "tierC_train_N": 8173
+}
