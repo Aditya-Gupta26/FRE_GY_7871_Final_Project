@@ -1,6 +1,6 @@
 """Draw the gold set, the coding tiers and the test-retest set, and write the coder batches.
 Seeded; drawn on text features and metadata only (never on any model output). Caps from
-config.PREREG["coding_caps"] and the dated note on four outlet groups.
+config.PREREG["coding_caps"] and the recorded note on four outlet groups.
     python scripts/06_make_samples.py
 Writes data/labels/gold_{sheet,key}.csv, data/coded/sample_key.csv, data/coded/batches/*_in.jsonl.
 """

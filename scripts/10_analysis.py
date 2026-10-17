@@ -1,5 +1,5 @@
 """RQ1, RQ2, RQ4, RQ5, RQ6, the three-explanation scorecard, the extra questions and the monitoring
-numbers. Everything follows config.PREREG and its dated notes.
+numbers. Everything follows config.PREREG and its recorded notes.
     python scripts/10_analysis.py
 Needs scripts 01, 04, 05, 07, 09 to have run. Writes outputs/results.json and outputs/tables/rq*_*.csv.
 """
@@ -16,7 +16,7 @@ from statsmodels.stats.multitest import multipletests
 
 from src.coded import load_codes
 from src.config import END, CODED, INTERIM, OUTPUTS, PREREG, PROCESSED, TABLES
-from src.econ_model import fit, predict
+from src.econ_model import fit, mean_gap_band, predict
 from src.forecast import clark_west, diebold_mariano, expanding_nowcast, metrics
 from src.fred import asof, latest, release_dates, vintages
 from src.media import item_measures
@@ -24,7 +24,7 @@ from src.tests import (ar1, asymmetry, leave_one_year_out, mde_r, robustness_val
                        toda_yamamoto)
 
 warnings.filterwarnings("ignore")
-RES = {"prereg_time": PREREG.get("prereg_time", "2026-10-12 23:58 ET")}
+RES = {}
 MONTHS = pd.date_range("2010-01-01", END, freq="MS")
 COVID = pd.date_range("2020-03-01", "2021-01-01", freq="MS")
 TR = slice("2010-01-01", "2019-12-01")
@@ -42,7 +42,7 @@ K = pd.read_csv(CODED / "sample_key.csv", parse_dates=["date", "survey_month"])
 X = CODES.merge(K, on="item_id")
 S = I["ICS"].reindex(MONTHS)
 keep = MONTHS.difference(COVID)
-# Monthly media measures (deviation of Oct 13, 02:46 ET): the primary monthly measure is the
+# Monthly media measures (the recorded deviation, PREREG_NOTES note 8): the primary monthly measure is the
 # Opus-distilled TF-IDF series on the full corpus (Tier C); SF Fed is the pre-registered secondary.
 # The own-Opus series is monthly only where covered (2026) and quarterly for history.
 own = M["TC_NEGNET"]
@@ -299,6 +299,24 @@ lpm = smf.ols("neg ~ C(group, Treatment('center')) + C(survey_month)", both.assi
 rq1["lpm_negative_by_group"] = {k.split("[T.")[1].rstrip("]"): {"coef": float(v), "p": float(lpm.pvalues[k])}
                                 for k, v in lpm.params.items() if k.startswith("C(group")}
 rq1["by_group"] = json.loads(byg.round(4).to_json(orient="index"))
+# the same comparison split by the president's party (descriptive, added after the main results): month fixed effects
+# within each regime, errors clustered by survey month; plus the regime difference of each source's gap (interaction)
+bp = both.assign(survey_month=both["survey_month"].astype(str), pres=both["date"].map(pres_party))
+bp["R"] = (bp["pres"] == "R").astype(int)
+by_pres = {}
+for prt in ["D", "R"]:
+    d_ = bp[bp["pres"] == prt]
+    f_ = smf.ols("neg ~ C(group, Treatment('center')) + C(survey_month)", d_).fit(
+        cov_type="cluster", cov_kwds={"groups": pd.factorize(d_["survey_month"])[0]})
+    by_pres[prt] = {"items": int(len(d_)), "months": int(d_["survey_month"].nunique()),
+                    "items_by_group": d_.groupby("group").size().astype(int).to_dict(),
+                    "vs_center": {k.split("[T.")[1].rstrip("]"): {"coef": float(v), "se": float(f_.bse[k]), "p": float(f_.pvalues[k])}
+                                  for k, v in f_.params.items() if k.startswith("C(group")}}
+fi = smf.ols("neg ~ C(group, Treatment('center')) * R + C(survey_month)", bp).fit(
+    cov_type="cluster", cov_kwds={"groups": pd.factorize(bp["survey_month"])[0]})
+by_pres["R_minus_D"] = {k.split("[T.")[1].split("]")[0]: {"coef": float(v), "p": float(fi.pvalues[k])}
+                        for k, v in fi.params.items() if k.startswith("C(group") and k.endswith(":R")}
+rq1["lpm_negative_by_group_by_president"] = by_pres
 # negativity by outlet lean under each president's party (descriptive; is "right is more negative" just
 # "the opposition party's outlets are more negative"?), pooled coded news items
 nb = im.assign(pres=im["date"].map(pres_party)).groupby(["pres", "group"])["neg"].agg(["mean", "size"])
@@ -357,6 +375,75 @@ q = multipletests(pv, alpha=0.10, method="fdr_bh")[1]
 famdf.loc[famdf["test"].str.startswith("level"), "bh_q"] = q[:2]
 TY["bh_q"] = q[2:]
 famdf.to_csv(TABLES / "rq2_family.csv", index=False)
+# the same level model WITHOUT the household costs (added after the main results, for the presentation): news then also
+# gets credit for the price and rate pressures it reports, so this is the media-friendly upper case, not a test
+d_nh = D[["S"] + BASE + ["TC_NEGNET"]].dropna()
+f_nh = fit(d_nh["S"], d_nh[BASE + ["TC_NEGNET"]])
+b_nh, se_nh = float(f_nh.params["TC_NEGNET"]), float(f_nh.bse[list(f_nh.params.index).index("TC_NEGNET")])
+dm_nh = float(M["TC_NEGNET"].loc["2026-01-01":END].mean() - M["TC_NEGNET"].loc["2019-01-01":"2019-12-01"].mean())
+tc_nh = stats.t.ppf(0.95, f_nh.nu)
+rq2["level_without_household_TC_NEGNET"] = {
+    "N": int(f_nh.nobs), "nu": f_nh.nu, "coef": b_nh, "se": se_nh, "p_expected_sign": float(stats.t.cdf(b_nh / se_nh, f_nh.nu)),
+    "implied_contribution_if_causal": b_nh * dm_nh, "implied_ci90": sorted([dm_nh * (b_nh - tc_nh * se_nh), dm_nh * (b_nh + tc_nh * se_nh)]),
+    "media_change_2019_2026": dm_nh}
+# household costs in the same level model (added after the main results, for the presentation): coefficient x change in
+# the 2019 and 2026 averages, as for the news; then news and household costs in the out-of-sample Model E (2010-19)
+# that the 39.9-point gap comes from. Descriptive accounting, not a test.
+d_lv = D[["S"] + BASE + H1 + ["TC_NEGNET"]].dropna()
+f_lv = fit(d_lv["S"], d_lv[BASE + H1 + ["TC_NEGNET"]])
+tc_lv = stats.t.ppf(0.95, f_lv.nu)
+X_hh = pd.DataFrame({"S": S}).join(P[BASE + H1]).join(M[["TC_NEGNET"]])
+dX_hh = X_hh.loc["2026-01-01":END].mean() - X_hh.loc["2019-01-01":"2019-12-01"].mean()
+
+
+def _pts(f, cols, tc):   # coefficient x change summed over cols, with a 90% band from the EWC covariance
+    g = dX_hh[cols].to_numpy()
+    t = float(f.params[cols] @ g)
+    se = float(np.sqrt(g @ f.V.loc[cols, cols].to_numpy() @ g))
+    return {"points": t, "ci90": [t - tc * se, t + tc * se]}
+
+
+rq2["level_household_contribution"] = {
+    "household_all6": _pts(f_lv, H1, tc_lv), "housing_mort30_afford": _pts(f_lv, ["mort30", "afford"], tc_lv),
+    "economy": _pts(f_lv, BASE, tc_lv), "news": _pts(f_lv, ["TC_NEGNET"], tc_lv),
+    "by_cost": {c: {"coef": float(f_lv.params[c]), "change": float(dX_hh[c]), "points": float(f_lv.params[c] * dX_hh[c])} for c in H1},
+    "fall_2019_2026": float(dX_hh["S"]), "N": int(f_lv.nobs)}
+TR_E = slice("2010-01-01", "2019-12-01")
+oos = {}
+for k, cols in [("economy", BASE), ("plus_household", BASE + H1), ("plus_news", BASE + ["TC_NEGNET"]),
+                ("plus_household_and_news", BASE + H1 + ["TC_NEGNET"])]:
+    fe = fit(S.loc[TR_E], X_hh[cols].loc[TR_E])
+    pe = sm.add_constant(X_hh[cols], has_constant="add") @ fe.params
+    te = stats.t.ppf(0.95, fe.nu)
+    oos[k] = {"gap_2026": float((S - pe).loc["2026-01-01":END].mean()),
+              "household": _pts(fe, H1, te) if set(H1) <= set(cols) else None,
+              "news": _pts(fe, ["TC_NEGNET"], te) if "TC_NEGNET" in cols else None}
+rq2["model_e_2010_19_household_news"] = oos
+# E6, EXPLORATORY (on request, after the main results): the same accounting with the model trained on 2010-2025 (COVID
+# window skipped), still predicting Jan-Oct 2026 out of sample. Pieces are added in order, each the fall in the 2026 gap:
+# the web switch (Michigan's 6.6 added back to sentiment in every web month, then refit), household costs, then news.
+# The party mix stays the model-free comparison of averages. This model has seen 2021-2025, so part of the disconnect is
+# already inside its coefficients.
+web_sh = pd.Series(0.0, index=MONTHS)
+web_sh.loc["2024-04-01"], web_sh.loc["2024-05-01"], web_sh.loc["2024-06-01"] = 0.25, 0.5, 0.75
+web_sh.loc["2024-07-01":] = 1.0
+TR25 = pd.date_range("2010-01-01", "2025-12-01", freq="MS").difference(COVID)
+Y26m = pd.date_range("2026-01-01", END, freq="MS")
+e6 = {}
+for k, cols, web_adj in [("economy", BASE, False), ("web", BASE, True), ("web_household", BASE + H1, True),
+                         ("web_household_news", BASE + H1 + ["TC_NEGNET"], True), ("household", BASE + H1, False),
+                         ("news", BASE + ["TC_NEGNET"], False), ("household_news", BASE + H1 + ["TC_NEGNET"], False)]:
+    y = (S + 6.6 * web_sh) if web_adj else S
+    d6 = X_hh[cols].assign(y=y).reindex(TR25).dropna()
+    f6 = fit(d6["y"], d6[cols])
+    p6 = sm.add_constant(X_hh[cols], has_constant="add") @ f6.params
+    t6 = stats.t.ppf(0.95, f6.nu)
+    b6 = mean_gap_band(f6, X_hh[cols].reindex(Y26m), (y - p6).reindex(Y26m))   # 95% band of the 10-month mean gap
+    e6[k] = {"N": int(f6.nobs), "gap_2026": float((y - p6).reindex(Y26m).mean()), "pred_2026": float(p6.reindex(Y26m).mean()),
+             "gap_band95": [float(b6["lo"]), float(b6["hi"])], "coef": {c: float(f6.params[c]) for c in BASE},
+             "economy": _pts(f6, BASE, t6), "household": _pts(f6, H1, t6) if set(H1) <= set(cols) else None,
+             "news": _pts(f6, ["TC_NEGNET"], t6) if "TC_NEGNET" in cols else None}
+rq2["e6_model_2010_25"] = e6
 TY.to_csv(TABLES / "rq2_toda_yamamoto.csv", index=False)
 # claim rule for H2 (Tier C NEGNET, the monthly primary after the deviation)
 lev = famdf[famdf["test"].str.startswith("level") & (famdf["media"] == "TC_NEGNET")].iloc[0]
@@ -539,7 +626,7 @@ for dyn in [False, True]:
     if not dyn:
         RES["rq5_main_preds"] = {k: v.loc[common, "pred"].round(3).to_dict() for k, v in preds.items()}
         pd.DataFrame({k: v.loc[common, "pred"] for k, v in preds.items()}).join(preds["m1"].loc[common, "y"]).to_csv(TABLES / "rq5_nowcasts.csv")
-        # EXPLORATORY (added Oct 13, 03:08 ET, after the main results; not pre-registered): do the household
+        # EXPLORATORY (added after the main results; not pre-registered): do the household
         # controls alone improve the economy-only nowcast? m1 vs m1b, all months and 2021-02..2026-10
         c21 = common[(common >= "2021-02-01") & (common <= END)]
         RES["rq5_exploratory_m1_vs_m1b"] = {
@@ -603,10 +690,10 @@ for k in range(13, 60, 4):
         d[c] = arr
     null_hits.append(grid(d, shift=k)[0])
 rq5["grid"] = grow
-# the pre-registered Reddit variant cannot be estimated: Reddit history coding was cut in the 02:46 deviation
+# the pre-registered Reddit variant cannot be estimated: Reddit history coding was cut in the recorded deviation (note 8)
 rq5["grid_reddit_variant"] = {"months_with_5plus_coded_relevant_posts": int((M["red_n_items"] >= 5).sum()),
                               "median_items_per_month": float(M["red_n_items"].median()),
-                              "note": "not estimable; replaced by tone-only and news-EPU variants (dated note in PREREG_NOTES)"}
+                              "note": "not estimable; replaced by tone-only and news-EPU variants (recorded note in PREREG_NOTES)"}
 rq5["grid_hits_p_lt_0.10"] = int(hits)
 rq5["joint_null_hits"] = {"mean": float(np.mean(null_hits)), "share_ge_observed": float(np.mean(np.array(null_hits) >= hits)),
                           "draws": len(null_hits)}

@@ -1,0 +1,117 @@
+{
+ "reddit_gold": {
+  "N": 150,
+  "N_relevant": 59,
+  "doc_overlap_with_training": 0,
+  "relevant_macro_f1": 0.8660399529964747,
+  "tone_macro_f1": 0.4726247987117553,
+  "opus_tone_macro_f1_reddit_relevant": 0.918796992481203,
+  "opus_tone_macro_f1_reddit": 0.9450792247964144
+ },
+ "subreddit_months_present": {
+  "Economics": 203,
+  "economy": 202,
+  "personalfinance": 133
+ },
+ "corpus": {
+  "posts_scored": 50926,
+  "posts_relevant": 15265,
+  "relevance_rate": 0.2997486549110474,
+  "median_relevant_per_month": 31.5,
+  "min_relevant_per_month": 9,
+  "months_with_20plus": 186,
+  "months": 202,
+  "split_half": {
+   "r_half": 0.2550268067348946,
+   "spearman_brown": 0.4064085410229251,
+   "reps": 200
+  },
+  "corr_with_news_tierC": {
+   "r_levels": 0.12674850968428142,
+   "r_changes": -0.05074705824320618
+  }
+ },
+ "reddit_change_2019_2026": {
+  "mean_2019": 0.42323749878467076,
+  "mean_2026": 0.5061549875569675,
+  "change": 0.08291748877229677
+ },
+ "level_models": [
+  {
+   "model": "economy + Reddit",
+   "N": 191,
+   "nu": 13,
+   "coef": -3.3145369968274663,
+   "se": 3.4659697913380794,
+   "p_expected_sign": 0.17818152870147305,
+   "implied_contribution_if_causal": -0.2748330842198037,
+   "implied_ci90": [
+    -0.7837807673636406,
+    0.2341145989240333
+   ],
+   "robustness_value": 0.053695431731635504
+  },
+  {
+   "model": "economy + household costs + Reddit",
+   "N": 191,
+   "nu": 13,
+   "coef": 2.129371485869587,
+   "se": 3.631387144459518,
+   "p_expected_sign": 0.7161684124055552,
+   "implied_contribution_if_causal": 0.17656213627164039,
+   "implied_ci90": [
+    -0.3566756543143737,
+    0.7097999268576545
+   ],
+   "robustness_value": 0.0498992525131961,
+   "loyo_max_p": 0.9764398185676815,
+   "loyo_coef_range": [
+    -0.09644566798657195,
+    3.7488242118126927
+   ],
+   "drop_2021_22": {
+    "coef": 4.408457962591509,
+    "p_two_sided": 0.25219046762112596
+   }
+  },
+  {
+   "model": "economy + household costs + news + Reddit",
+   "N": 191,
+   "nu": 13,
+   "coef": 2.116957659157505,
+   "se": 3.460119792862226,
+   "p_expected_sign": 0.7243950764995235,
+   "implied_contribution_if_causal": 0.17553281293462006,
+   "implied_ci90": [
+    -0.332555848535652,
+    0.6836214744048921
+   ],
+   "robustness_value": 0.05000518050674737
+  }
+ ],
+ "changes": {
+  "N": 189,
+  "coef": -0.9356142279875352,
+  "p_two_sided": 0.4178750349656919
+ },
+ "toda_yamamoto": {
+  "reddit_to_sentiment": {
+   "lag_p": 1,
+   "N": 187,
+   "wald": 0.01962995248318573,
+   "p": 0.8885755034250591,
+   "sum_coef": -0.2121910535556495,
+   "p_perm": 0.8855421686746988,
+   "n_shifts": 165
+  },
+  "sentiment_to_reddit": {
+   "lag_p": 1,
+   "N": 187,
+   "wald": 0.1426533281557593,
+   "p": 0.7056573644055366,
+   "sum_coef": -0.0011484695352117556,
+   "p_perm": 0.6927710843373494,
+   "n_shifts": 165
+  }
+ }
+}

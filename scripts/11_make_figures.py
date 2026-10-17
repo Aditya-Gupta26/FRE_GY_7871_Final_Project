@@ -72,7 +72,7 @@ def fig1():
     c.set_title("(c) 2026 mean gap by index")
     c.set_xlabel("points (X1-X5: relative score)")
     c.grid(axis="y", visible=False)
-    fig.savefig(FIGURES / "fig2_baseline_gap.png")
+    fig.savefig(FIGURES / "fig3_baseline_gap.png")
     plt.close(fig)
 
 
@@ -197,7 +197,7 @@ def fig3():
     d.legend(loc="upper left", fontsize=7, ncol=2)
     d.set_title("(d) Negativity by outlet lean (numbers: items)")
     d.grid(axis="x", visible=False)
-    fig.savefig(FIGURES / "fig3_bias_tests.png")
+    fig.savefig(FIGURES / "fig4_bias_tests.png")
     plt.close(fig)
 
 
@@ -251,7 +251,7 @@ def fig4():
     c.set_title("(c) Error by period")
     c.legend(loc="upper center", bbox_to_anchor=(0.45, -0.14), ncol=2, fontsize=6.8, columnspacing=0.6, handlelength=1)
     c.grid(axis="y", visible=False)
-    fig.savefig(FIGURES / "fig5_prediction.png")
+    fig.savefig(FIGURES / "fig6_prediction.png")
     plt.close(fig)
 
 
@@ -299,7 +299,7 @@ def fig5():
     c.set_xticks([pd.Timestamp(f"{y}-01-01") for y in (2016, 2020, 2024)], ["2016", "2020", "2024"])
     c.set_xlim(p.index[0], p.index[-1] + pd.Timedelta(days=1250))
     c.set_title("(c) Sentiment by party")
-    fig.savefig(FIGURES / "fig4_mechanisms.png")
+    fig.savefig(FIGURES / "fig5_mechanisms.png")
     plt.close(fig)
 
 
@@ -349,14 +349,69 @@ def fig6():
     c.set_ylabel("change in gap, Jun to Oct")
     c.set_title("(c) Pre-election drift")
     c.grid(axis="x", visible=False)
-    fig.savefig(FIGURES / "fig6_monitoring.png")
+    fig.savefig(FIGURES / "fig7_monitoring.png")
+    plt.close(fig)
+
+
+def fig_tierc():
+    """How the Tier C classifier was trained and how it does: fit on its own training labels vs items it has not
+    seen (cross-validation on Opus labels; the adjudicated gold labels), a learning curve, and agreement with
+    Opus's own quarterly series."""
+    T = pd.read_csv(TABLES / "tierc_training.csv").set_index("classifier")
+    LC = pd.read_csv(TABLES / "tierc_learning_curve.csv")
+    Q = pd.read_csv(TABLES / "tierc_vs_opus_quarterly.csv", index_col=0, parse_dates=True)
+    R = json.loads((OUTPUTS / "results_tierc.json").read_text())
+    Q = Q.reindex(pd.date_range("2010-01-01", Q.index.max(), freq="QS"))   # gaps break the lines
+    fig = plt.figure(figsize=(7.4, 2.55))
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.15, 0.85, 1.35], wspace=0.55)
+    a, b, c = (fig.add_subplot(gs[0, k]) for k in range(3))
+    names = [("relevant", "relevance"), ("tone", "tone"), ("topic:inflation_up", "inflation up"),
+             ("topic:inflation_down", "inflation down"), ("topic:prices_high", "prices high"),
+             ("topic:layoffs", "layoffs"), ("topic:hiring", "hiring")]
+    y = np.arange(len(names))[::-1]
+    for col, lab, colr, mk in [("train_macro_f1", "training labels (fit)", INK2, "o"),
+                               ("cv_macro_f1", "unseen Opus labels (5-fold CV)", BLUE, "s"),
+                               ("gold_macro_f1", "gold labels (never trained on)", ORANGE, "D")]:
+        a.plot(T.loc[[n for n, _ in names], col], y, mk, color=colr, ms=4.3, mec="white", mew=0.5, ls="none", label=lab)
+    a.set_yticks(y, [n for _, n in names])
+    a.set_xlim(0.4, 1.0)
+    a.set_xlabel("macro-F1 (1 = perfect)")
+    a.set_title("(a) Fit vs unseen items")
+    a.legend(loc="upper left", bbox_to_anchor=(-0.55, -0.2), ncol=1, fontsize=6.8, handletextpad=0.2)
+    a.grid(axis="y", visible=False)
+    for name, colr in [("relevant", AQUA), ("tone", MAGENTA)]:
+        d = LC[LC["classifier"] == name]
+        b.plot(d["n"], d["cv_macro_f1"], "-o", color=colr, ms=3.2, mec="white", mew=0.5, lw=1.2)
+        b.text(d["n"].iloc[-1] * 1.12, d["cv_macro_f1"].iloc[-1], "relevance" if name == "relevant" else "tone",
+               color=colr, fontsize=7, va="center")
+    b.set_xscale("log")
+    b.set_xticks([450, 1000, 2000, 4000, 8000], ["450", "1k", "2k", "4k", "8k"])
+    b.minorticks_off()
+    b.set_xlim(350, 16000)
+    b.set_ylim(0.4, 0.9)
+    b.set_xlabel("training items (Opus labels)")
+    b.set_ylabel("macro-F1, unseen items")
+    b.set_title("(b) More labels, better")
+    ag = R["agreement_with_opus_quarterly"]["TC_NEGNET"]
+    c.plot(Q.index, Q["ownQ_NEGNET"], "o-", color=ORANGE, ms=2.6, lw=0.9, mec="white", mew=0.4)
+    c.plot(Q.index, Q["TC_NEGNET"], "s-", color=BLUE, ms=2.4, lw=0.9, mec="white", mew=0.4)
+    c.text(pd.Timestamp("2010-04-01"), 0.83, "Opus's own labels", color=ORANGE, fontsize=7)
+    c.text(pd.Timestamp("2010-04-01"), 0.73, "Tier C", color=BLUE, fontsize=7)
+    c.text(pd.Timestamp("2017-06-01"), -0.33, f"r = {ag['r_levels']:.2f} ({ag['N_quarters']} quarters)", color=INK2, fontsize=7)
+    c.axhline(0, color=INK2, lw=0.6)
+    c.set_ylim(-0.4, 0.95)
+    c.set_ylabel("share neg. - share pos.")
+    c.set_title("(c) Same answer as Opus, by quarter")
+    year_axis(c, 4)
+    fig.savefig(FIGURES / "fig2_tierc.png")
     plt.close(fig)
 
 
 SHADE_C = "#c9c8c1"
-# report numbering follows the order of appearance: Figure 1 media (fn fig2), Figure 2 baseline (fn fig1),
-# Figure 4 mechanisms (fn fig5), Figure 5 prediction (fn fig4)
-FIGS = {"fig1": fig2, "fig2": fig1, "fig3": fig3, "fig4": fig5, "fig5": fig4, "fig6": fig6}
+# report numbering follows the order of appearance: Figure 1 media (fn fig2), Figure 2 Tier C (fn fig_tierc),
+# Figure 3 baseline (fn fig1), Figure 4 bias tests (fn fig3), Figure 5 mechanisms (fn fig5), Figure 6 prediction
+# (fn fig4), Figure 7 monitoring (fn fig6)
+FIGS = {"fig1": fig2, "fig2": fig_tierc, "fig3": fig1, "fig4": fig3, "fig5": fig5, "fig6": fig4, "fig7": fig6}
 if __name__ == "__main__":
     want = sys.argv[1:] or list(FIGS)
     for k in want:

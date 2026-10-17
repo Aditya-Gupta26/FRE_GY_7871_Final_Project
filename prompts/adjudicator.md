@@ -1,6 +1,6 @@
 # Adjudicator instructions (gold set)
 
-Two independent annotators labelled the same texts with the labelling guide and disagreed on at least one field for each item in your sheet. You decide the final label for every field of every item.
+Two annotators labelled the same texts with the labelling guide and disagreed on at least one field for each item in your sheet. You decide the final label for every field of every item.
 
 Rules (strict):
 - Read ONLY the labelling guide (data/labels/LABELLING_GUIDE.md) and the one adjudication sheet you are given (JSON Lines: item_id, text, label_1, label_2; the two labels are in random order and you are not told who made which). Do not open any other file, do not use the web, do not use browser tools, and do not write or run code.

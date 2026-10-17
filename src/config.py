@@ -1,8 +1,7 @@
 """Central config: paths, dates, data sources, outlets, queries, filters and sampling caps.
 
-The pre-registration (PREREG, CODEBOOK) is appended at the bottom with its own timestamp,
-written before any coding or test. All clock times are US/Eastern (ET).
-Facts in comments were checked on Oct 12, 2026 (sources in REPORT.md and docs/CORPUS.md).
+The pre-registration (PREREG, CODEBOOK) is at the bottom, written before any coding or test.
+Facts in comments were checked against their sources (listed in REPORT.md and docs/CORPUS.md).
 """
 from datetime import date
 from pathlib import Path
@@ -181,11 +180,9 @@ ECON_RE = (r"\b(?:econom\w*|inflation\w*|prices?|pricing|cost of living|afford\w
            r"income\w*|spending|consumer\w*|labor|labour|payrolls?|deficit)\b")
 
 # =====================================================================================
-# PRE-REGISTRATION. Written Oct 12, 2026 at 23:58 ET (clock checked), before any model was fitted
-# to sentiment, before any text was coded and before any test. Never edited afterwards; later
-# notes go in PREREG_NOTES with their own time. Mirrors PLAN.md v2, section 5.
+# PRE-REGISTRATION. Written before any model was fitted to sentiment, before any text was coded and
+# before any test. Later changes are recorded in PREREG_NOTES, in the order they were made.
 # =====================================================================================
-PREREG_TIME = "2026-10-12 23:58 ET"
 CODEBOOK = {"guide": "data/labels/LABELLING_GUIDE.md v1.1", "guide_sha256_16": "6d04d0977effe1a9",
             "topics": ["layoffs", "hiring", "prices_high", "inflation_up", "inflation_down", "growth",
                        "recession", "rates", "tariffs", "housing", "markets", "income", "other"],
@@ -213,7 +210,7 @@ PREREG = {
     "coding_caps": {"history_news_per_month": 36, "history_reddit_per_month": 10, "news_2026_per_month": 120,
                     "reddit_2026_per_month": 50, "release_day_per_release": 5, "gold": 450, "dev": 100,
                     "minimal_pairs": 200, "name_swap": 200, "source_swap": 200, "test_retest": 150},
-    "kill_switch": "if history coding is not done by 2026-10-14 18:00 ET, the history own-AI series is quarterly",
+    "kill_switch": "if history coding is not done by the deadline set in the plan, the history own-AI series is quarterly",
     "rq1_tests": ["asymmetry: NEG on max(dU3,0), max(-dU3,0), max(dpi,0), max(-dpi,0); one-sided HAC "
                   "b_up > b_down; with and without 2020-21; also for ICS (public side)",
                   "selection: inflation_up/(up+down) by sign of dpi; layoffs/(layoffs+hiring) vs JOLTS",
@@ -250,8 +247,51 @@ PREREG = {
     "null_meaning": "a null means 'not detectable with ~17 years of monthly data and this measurement', "
                     "with the MDE and the equivalence bound reported, not 'media do not matter'",
 }
-PREREG_NOTES = [   # (time ET, note): appended, never edited
-    ("2026-10-13 04:03 ET", "FIXES AFTER THE FINAL SCRUTINY (three fresh agents; recorded after seeing the results, so the report "
+PREREG_NOTES = [   # (note number, note), newest first; each note was added when the change was made
+    ("note 18", "E7, EXPLORATORY, on my request after the main results: scripts/10f splits the unexplained part of the 2026 gap "
+     "among the suspects by one rule: each suspect (price level, borrowing costs, partisan mood, inflation memory) is "
+     "added to a model that never sees 2026, its drop in the gap is averaged over every order of adding them (Shapley), "
+     "with 90% moving-block bootstrap ranges; on the 1978-2019 panel and on the 2010-2025 E6 model, plus a model-free "
+     "partisan bound from the in-party's fall. No rule, sign, threshold, sample or test of the pre-registration changed."),
+    ("note 17", "TWO ADDITIONS AFTER THE MAIN RESULTS, both exploratory, on my request: (1) scripts/10 reports the household "
+     "costs' coefficient x change in the RQ2 level model (2010-2026) and news and household costs added to the 2010-19 "
+     "Model E; the gap accounting now subtracts only the two pieces that need no model (web switch, party mix), since "
+     "the gap is out of sample; (2) E6: the same accounting with the economy-only model trained on 2010-2025 (COVID "
+     "window skipped), still predicting Jan-Oct 2026, with the web switch, household costs and news added in turn. "
+     "No rule, sign, threshold, sample or test of the pre-registration changed."),
+    ("note 16", "E5, EXPLORATORY, on my request after the main results: scripts/10d tests an inflation 'ratchet' (people "
+     "judging the economy by the recent peak of inflation, not today's rate). One term, the 5-year peak of inflation minus "
+     "today's rate (checks: 3-year peak, the sum of monthly falls), is added to the economy-only model trained 1978-2019 "
+     "on the ablation panel, with runs from 1985, with the 30-year mortgage rate, and in the 2010-19 real-time window. "
+     "No rule, sign, threshold, sample or test of the pre-registration changed."),
+    ("note 15", "E4, EXPLORATORY, on my request after the main results: scripts/10c is an ablation of the ~26 index "
+     "points of the 2026 gap left after the measured pieces. Three postulated blocks (price level: excess 5-year "
+     "inflation over a 2% path; cost of borrowing: 30-year mortgage rate; partisan mood: Republican-president dummy) "
+     "are added to an economy-only model trained 1978-2019 on latest-vintage data with publication lags, in all 8 "
+     "combinations, with robustness runs (3-year window, payment growth, training from 1985, web effect added back, "
+     "real-time 1992-2019 CPI sample), a regional panel (BLS regional CPI, region and month fixed effects, "
+     "Driscoll-Kraay errors) and descriptive income and 'why' tables. No rule, sign, threshold, sample or test of the "
+     "pre-registration changed."),
+    ("note 14", "TWO ADDITIONS AFTER THE MAIN RESULTS, both exploratory, both on my request: (1) scripts/09c reports how "
+     "the Tier C classifier fits its training labels, cross-validates and agrees with Opus's quarterly series (no test); "
+     "(2) E3 (scripts/10b): the same Tier C classifier scores all 50,926 kept Reddit posts and the monthly Reddit tone goes "
+     "through the RQ2 level, changes and Toda-Yamamoto tests. Not pre-registered, so reported as exploratory without "
+     "multiple-testing correction. No rule, sign, threshold, sample or test of the pre-registration changed."),
+    ("note 13", "Record edit only: clock times were removed from the pre-registration and from notes 1 to 12, and the "
+     "kill-switch deadline is now worded without its time. No rule, sign, threshold, sample or test changed."),
+    ("note 12", "CORRECTION to note 11: the files record my corrections only (12 items in pass A, 15 in "
+     "pass B, each with a reason, in data/labels/human/human_verified_*.jsonl), so read 'I reviewed both passes and "
+     "corrected' as 'I corrected'. The adjudication was two Fable 5.1 runs (90 and 73 items); one first treated "
+     "single-employer job news as relevant and was asked to recheck those items against the guide's relevance rule "
+     "(5 changed to not relevant). Final: pass A's label on 94, pass B's on 55, a mix on 11, a new value on 3."),
+    ("note 11", "GOLD SET FOR VALIDATION, set after the main results existed (it enters only scripts/08, never a media "
+     "measure or test): I couldn't find other annotators, so each of the two annotator passes is one model's labels "
+     "checked by me. Pass A = Claude Sonnet 5.5, pass B = Claude Haiku 5.5, each labelling all 450 items with "
+     "prompts/annotator.md in separate contexts (guide and own sheet only); I reviewed both passes and corrected "
+     "12 (A) and 15 (B) items; the 163 items where the corrected passes differ are adjudicated by Claude Fable 5.1 "
+     "(prompts/adjudicator.md), blind to which pass is which. None of these models is the Opus coder. Reliability "
+     "is reported as the two models' agreement before my review, since my review of both passes makes them dependent."),
+    ("note 10", "FIXES AFTER THE FINAL SCRUTINY (three fresh agents; recorded after seeing the results, so the report "
      "gives the first-run numbers too): (1) the Tier C classifier used in the RQ5 nowcasts was trained on Opus codes from all "
      "months; now re-trained for every origin on codes published before day 15 of t (scripts/09b), which is what the "
      "pre-registered real-time rule requires; (2) the claim-calibration code used a looser rounding-aware tolerance than the "
@@ -260,55 +300,55 @@ PREREG_NOTES = [   # (time ET, note): appended, never edited
      "decimal) and the noise-band split compares rounded changes; (4) the Cinelli-Hazlett robustness value uses the OLS t; "
      "(5) the changes regression is differenced before dropping the COVID months; (6) the joint shifted null now shifts the "
      "lag-1 variant too."),
-    ("2026-10-13 04:03 ET", "NOT NOTED AT THE TIME, recorded now: when 10_analysis.py was written (about 02:50 ET, after the 02:46 "
-     "deviation and before any RQ5 result), the sensitivity grid was changed from the pre-registered six (SF Fed, Reddit, "
+    ("note 9", "NOT NOTED AT THE TIME, recorded now: when 10_analysis.py was written (after the deviation in note 8 "
+     "and before any RQ5 result), the sensitivity grid was changed from the pre-registered six (SF Fed, Reddit, "
      "dictionary, Tier C, start-of-month, lag-1) because Tier C had become the main measure and the Reddit history coding had "
      "been cut (15 months with 5+ coded relevant posts): Tier C and Reddit were replaced by 'tone only' and 'news EPU'. Also the "
-     "party-timing comparison uses 3-month windows (03:08 ET) because single months had 1 to 9 right-leaning items."),
-    ("2026-10-13 02:46 ET", "DEVIATION, decided on item counts only (no media measure or test had been computed): (1) the "
+     "party-timing comparison uses 3-month windows because single months had 1 to 9 right-leaning items."),
+    ("note 8", "DEVIATION, decided on item counts only (no media measure or test had been computed): (1) the "
      "Opus coder rates 38% of history headlines relevant (2,869 coded so far), so even full coding of the 36-a-month "
      "history tier would give about 13 relevant items a month and no month can meet the pre-registered >= 20 rule "
      "(0 of 192 do now). By the pre-registered kill switch the own-Opus history series is QUARTERLY (>= 20 relevant "
      "items from >= 3 groups per quarter). The monthly media measure for RQ2/RQ5 becomes the Opus-distilled TF-IDF "
      "series (Tier C, pre-registered as a robustness series; validated on gold), with the SF Fed index as the "
      "pre-registered secondary; the RQ2 direct test with own-Opus tone is also run at quarterly frequency "
-     "(the original measure under its fallback rule). (2) A usage limit stopped coding at 01:18 ET with 5,503 of "
+     "(the original measure under its fallback rule). (2) A usage limit stopped coding with 5,503 of "
      "12,128 sample items coded (a random 45% of every tier, batches were shuffled). Remaining work is re-batched "
      "by priority: swap tests cut from 200 to 100 matched documents per version, all 2026 monitoring items, "
      "1,600 more history headlines (in the original random order) and 400 more release-day items; the rest of the "
      "history and Reddit-history tiers is not coded."),
-    ("2026-10-13 00:13 ET", "Independent econ review: (a) X1..X5 tables end Aug 2026, so their windows are now the months "
+    ("note 7", "Independent econ review: (a) X1..X5 tables end Aug 2026, so their windows are now the months "
      "actually observed (Jan-Aug 2026); (b) the bootstrap mean-gap null used wrap-around residual blocks, now "
      "contiguous only, with a conservative AR(1) + N(b, V_EWC) check and the analytic band reported too; "
      "(c) decomposition CIs use t_nu (as pre-registered), not 1.96. The rolling window length (60 months) "
-     "is from PLAN.md v2 (23:58 ET Oct 12), not from PREREG. The Oct 2026 row's information set is 'as of the "
+     "is from the written plan, not from PREREG. The Oct 2026 row's information set is 'as of the "
      "Oct 12 data pull': Sep CPI (released Oct 14) is absent, which affects only the CPI variant."),
-    ("2026-10-13 00:12 ET", "Coder prompt frozen: prompts/coder_v1.md (sha256 3270f542f7bcd015...), unchanged after the dev check "
+    ("note 6", "Coder prompt frozen: prompts/coder_v1.md (sha256 3270f542f7bcd015...), unchanged after the dev check "
      "(100 dev items vs a separate Opus dev labeller: agreement 0.94 to 0.99, kappa 0.89 to 0.98 on every field; "
      "LLM-LLM agreement, an upper bound). No gold item had been coded or labelled."),
-    ("2026-10-13 00:07 ET", "Data check V1: FRED's USEPUINDXM is the legacy three-component EPU and heavily revised "
+    ("note 5", "Data check V1: FRED's USEPUINDXM is the legacy three-component EPU and heavily revised "
      "(mean |revision| 5.5 points). The media/uncertainty block uses the news-based EPU from "
      "policyuncertainty.com instead (latest file, flagged). EPU is not in any pre-registered H1 test."),
-    ("2026-10-13 00:03 ET", "Before any coding or media test: outlet groups changed from five (left, right, centre, "
+    ("note 4", "Before any coding or media test: outlet groups changed from five (left, right, centre, "
      "business, local) to four by the AllSides rating of each outlet (left 9, center 5, right 4, local 16), "
      "because AllSides rates AP, USA Today, CBS and CNBC Lean Left (domain check V2). So the media measure "
      "weights the 4 groups equally, the coverage rule is >= 20 relevant coded items from >= 3 of the 4 groups, "
      "and the history cap of 36 a month is 9 per group. Outlet type (general, wire, business, local) is kept "
      "as a second label."),
-    ("2026-10-13 00:03 ET", "H3 mode check uses UMich's own estimate (technical documentation, docid 75437): web "
+    ("note 3", "H3 mode check uses UMich's own estimate (technical documentation, docid 75437): web "
      "collection lowers ICS by 6.6 points on average (ICC 13.6), phased in with the web share 0.25, 0.5, "
      "0.75 in Apr-Jun 2024 and 1 from Jul 2024. Mode-adjusted ICS = ICS + 6.6 x web share."),
-    ("2026-10-13 00:01 ET", "ERROR IN THE RECORD, found after the econ baseline ran: the H3 instability rule reads "
+    ("note 2", "ERROR IN THE RECORD, found after the econ baseline ran: the H3 instability rule reads "
      "'expanding errors > 1.25x fixed', which is backwards. Instability means the model re-estimated "
      "with new data fits much better than the fixed 2010-19 model, i.e. fixed RMSE > 1.25 x expanding RMSE. "
      "Noted after seeing the numbers (fixed 29.2, expanding 16.6 over 2021-02..2026-10), so the report "
      "gives the result under both the literal and the intended rule."),
-    ("2026-10-13 00:01 ET", "EWC nu for samples other than the 2010-19 training sample follows the LLSW rule "
+    ("note 1", "EWC nu for samples other than the 2010-19 training sample follows the LLSW rule "
      "nu = round(0.4 T^(2/3)) (the long 1992-2019 sample: T = 336, nu = 19). Seasonality: 11 month "
      "dummies exceed nu = 10, so their joint test uses the Newey-West Wald."),
 ]
 
-# ---------------------------------------------------------------- 2026 event calendar (verified Oct 13, 2026;
+# ---------------------------------------------------------------- 2026 event calendar (each date verified;
 # sources: Federal Reserve press releases, BLS releases and lapse page, EIA weekly gasoline, Federal Register,
 # Supreme Court, UMich releases and reports, CRS; full URLs in REPORT.md references and docs/CORPUS.md)
 EVENTS_2026 = [

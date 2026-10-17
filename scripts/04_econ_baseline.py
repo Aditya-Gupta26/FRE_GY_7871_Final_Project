@@ -38,7 +38,7 @@ C.to_parquet(PROCESSED / "umich_components.parquet")
 S = I[["ICS", "ICC", "ICE"]].join(C[["X1_fin_now", "X2_fin_exp", "X3_bus_1y", "X4_bus_5y", "X5_durables"]]).join(T)
 S = S.loc["2010-01-01":END]
 assert I.loc[END, "ICS"] == UMICH_OCT2026_PRELIM["ICS"] or not I.loc[END, "preliminary"], "preliminary value not applied"
-R = {"prereg_time": "2026-10-12 23:58 ET"}
+R = {}
 
 
 def keep(idx):

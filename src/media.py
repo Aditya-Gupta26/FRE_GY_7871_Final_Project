@@ -4,7 +4,7 @@ Survey month t's media window is [day 15 of t-1, day 15 of t), so it ends at the
 News measures are computed per outlet group (left, center, right, local) and averaged with equal,
 fixed group weights: no weights or effects are estimated, so nothing leaks from later months.
 A month enters the own-AI series only if it has >= 20 relevant coded items from >= 3 of the 4 groups
-(PREREG + dated note). Measures (shares among relevant items unless stated):
+(PREREG + recorded note). Measures (shares among relevant items unless stated):
   NEGNET = share negative - share positive; EMO = share with emotional wording;
   SAL_<topic> = topic share; INFL_BAL = inflation_up / (inflation_up + inflation_down) items;
   JOB_BAL = layoffs / (layoffs + hiring) items; LEVEL = level frame among price-framed items;

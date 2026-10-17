@@ -23,8 +23,10 @@ if "--with-text" in sys.argv:
     steps += [["scripts/02_collect_news.py", "outlets"], ["scripts/02_collect_news.py", "releases"],
               ["scripts/03_collect_reddit.py"]]
 steps += [["scripts/01_get_econ.py", "--refresh"], ["scripts/04_econ_baseline.py"], ["scripts/05_build_corpus.py"],
-          ["scripts/09_media_measures.py"], ["scripts/09b_tierc_realtime.py"], ["scripts/10_analysis.py"],
-          ["scripts/11_make_figures.py"], ["scripts/12_build_dashboard.py"]]
+          ["scripts/09_media_measures.py"], ["scripts/09b_tierc_realtime.py"], ["scripts/09c_tierc_checks.py"],
+          ["scripts/10_analysis.py"], ["scripts/10b_reddit_exploratory.py"], ["scripts/10c_ablation.py"],
+          ["scripts/10d_ratchet.py"], ["scripts/10f_suspects.py"], ["scripts/11_make_figures.py"],
+          ["scripts/12_build_dashboard.py"]]
 for s in steps:
     print(">>", " ".join(s), flush=True)
     r = subprocess.run([sys.executable, *s], cwd=ROOT)

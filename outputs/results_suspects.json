@@ -1,0 +1,98 @@
+{
+ "rule": "out of sample (2026 never seen), Shapley over suspects, 90% block-bootstrap ranges",
+ "strict_1978_2019": {
+  "base_gap_2026": -40.28206205448639,
+  "gap_with_all": -39.186626076564906,
+  "closed": {
+   "P5": {
+    "name": "price level",
+    "points": -1.4156487841779992,
+    "range90": [
+     -3.1100920009842405,
+     0.6346571213998851
+    ]
+   },
+   "B": {
+    "name": "borrowing costs",
+    "points": 5.3008870430423185,
+    "range90": [
+     3.23050926794003,
+     8.770297439146336
+    ]
+   },
+   "R": {
+    "name": "partisan mood",
+    "points": 0.2944920313907205,
+    "range90": [
+     -0.9339472881877557,
+     1.8412072727776605
+    ]
+   },
+   "R60": {
+    "name": "inflation memory",
+    "points": -3.0842943123335576,
+    "range90": [
+     -5.314855817949085,
+     -1.2479835633526013
+    ]
+   }
+  },
+  "closed_all": {
+   "points": 1.0954359779214822,
+   "range90": [
+    -3.839617514913947,
+    7.4984078541340615
+   ]
+  },
+  "N_train": 504
+ },
+ "trained_2010_2025": {
+  "base_gap_2026": -15.161080615600449,
+  "gap_with_all": -3.3973401445720945,
+  "closed": {
+   "P5": {
+    "name": "price level",
+    "points": 5.254198088435593,
+    "range90": [
+     -1.317090119887999,
+     8.351831536436935
+    ]
+   },
+   "R": {
+    "name": "partisan mood",
+    "points": 0.9007357825738508,
+    "range90": [
+     -5.492762874620599,
+     2.229415276064766
+    ]
+   },
+   "R60": {
+    "name": "inflation memory",
+    "points": 5.6088066000189105,
+    "range90": [
+     1.1396651796478658,
+     8.873836942775212
+    ]
+   }
+  },
+  "closed_all": {
+   "points": 11.763740471028354,
+   "range90": [
+    -2.560231955027462,
+    14.871423543235712
+   ]
+  },
+  "N_train": 181
+ },
+ "partisan_model_free": {
+  "fall_by_party": {
+   "ICS_DEM": 40.73428571428572,
+   "ICS_IND": 49.16428571428572,
+   "ICS_REP": 30.478214285714287
+  },
+  "equal_weight_fall": 40.125595238095244,
+  "in_party_fall": 30.478214285714287,
+  "upper_bound_partisan": 9.647380952380956,
+  "note": "if partisan mood drove the fall, the in-party (Republicans in both periods) would not fall"
+ }
+}

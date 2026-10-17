@@ -1,0 +1,140 @@
+{
+ "training_items": 8173,
+ "relevant_training_items": 3811,
+ "classifiers": [
+  {
+   "classifier": "relevant",
+   "N_train": 8173,
+   "classes": "{\"no\": 4362, \"yes\": 3811}",
+   "train_macro_f1": 0.9571367142315625,
+   "train_accuracy": 0.9572984216322036,
+   "cv_macro_f1": 0.8102576678051294,
+   "gold_macro_f1": 0.8358312635245553,
+   "opus_gold_macro_f1": 0.9304762996446566
+  },
+  {
+   "classifier": "tone",
+   "N_train": 3811,
+   "classes": "{\"negative\": 1881, \"neutral\": 1115, \"positive\": 815}",
+   "train_macro_f1": 0.942382683025618,
+   "train_accuracy": 0.9441091577013907,
+   "cv_macro_f1": 0.586540490469412,
+   "gold_macro_f1": 0.6117197643669724,
+   "opus_gold_macro_f1": 0.8936091084127386
+  },
+  {
+   "classifier": "topic:inflation_up",
+   "N_train": 3811,
+   "classes": "{\"0\": 3598, \"1\": 213}",
+   "train_macro_f1": 0.8642034189043688,
+   "train_accuracy": 0.962477040146943,
+   "cv_macro_f1": 0.7538752567163092,
+   "gold_macro_f1": 0.8765508684863523,
+   "opus_gold_macro_f1": 0.9359785522788204
+  },
+  {
+   "classifier": "topic:inflation_down",
+   "N_train": 3811,
+   "classes": "{\"0\": 3649, \"1\": 162}",
+   "train_macro_f1": 0.9248442060424391,
+   "train_accuracy": 0.9858304906848596,
+   "cv_macro_f1": 0.7142753054649477,
+   "gold_macro_f1": NaN,
+   "opus_gold_macro_f1": NaN
+  },
+  {
+   "classifier": "topic:prices_high",
+   "N_train": 3811,
+   "classes": "{\"0\": 3132, \"1\": 679}",
+   "train_macro_f1": 0.9443829419061618,
+   "train_accuracy": 0.9651010233534505,
+   "cv_macro_f1": 0.8457637801544545,
+   "gold_macro_f1": 0.8837481014137165,
+   "opus_gold_macro_f1": 0.9758465833232188
+  },
+  {
+   "classifier": "topic:layoffs",
+   "N_train": 3811,
+   "classes": "{\"0\": 3333, \"1\": 478}",
+   "train_macro_f1": 0.9132557246674894,
+   "train_accuracy": 0.9564418787719758,
+   "cv_macro_f1": 0.7851990491854416,
+   "gold_macro_f1": 0.8182648401826484,
+   "opus_gold_macro_f1": 0.9615830115830116
+  },
+  {
+   "classifier": "topic:hiring",
+   "N_train": 3811,
+   "classes": "{\"0\": 3330, \"1\": 481}",
+   "train_macro_f1": 0.915806406507693,
+   "train_accuracy": 0.9577538703752296,
+   "cv_macro_f1": 0.8237064339258902,
+   "gold_macro_f1": 0.8079356568364611,
+   "opus_gold_macro_f1": 0.9615830115830116
+  }
+ ],
+ "learning_curve": [
+  {
+   "classifier": "relevant",
+   "n": 450,
+   "cv_macro_f1": 0.6654097360893085
+  },
+  {
+   "classifier": "relevant",
+   "n": 1000,
+   "cv_macro_f1": 0.7265656019080581
+  },
+  {
+   "classifier": "relevant",
+   "n": 2000,
+   "cv_macro_f1": 0.747391005617095
+  },
+  {
+   "classifier": "relevant",
+   "n": 4000,
+   "cv_macro_f1": 0.7865139580737374
+  },
+  {
+   "classifier": "relevant",
+   "n": 8173,
+   "cv_macro_f1": 0.8102576678051294
+  },
+  {
+   "classifier": "tone",
+   "n": 450,
+   "cv_macro_f1": 0.4825856270491498
+  },
+  {
+   "classifier": "tone",
+   "n": 1000,
+   "cv_macro_f1": 0.5214774999433618
+  },
+  {
+   "classifier": "tone",
+   "n": 2000,
+   "cv_macro_f1": 0.566114036828092
+  },
+  {
+   "classifier": "tone",
+   "n": 3811,
+   "cv_macro_f1": 0.586540490469412
+  }
+ ],
+ "agreement_with_opus_quarterly": {
+  "TC_NEGNET": {
+   "N_quarters": 50,
+   "r_levels": 0.6402278321169871,
+   "r_changes": 0.5292993811491101,
+   "mean_tierc": 0.259988927696551,
+   "mean_opus": 0.28318590954849315
+  },
+  "TC_prices_high": {
+   "N_quarters": 50,
+   "r_levels": 0.8916990064948758,
+   "r_changes": 0.7193547426467829,
+   "mean_tierc": 0.21312844607597295,
+   "mean_opus": 0.18808768297832543
+  }
+ },
+ "settings": "TF-IDF word 1-2 grams, sublinear tf, min_df 2; logistic regression, class_weight balanced, C = 2"
+}

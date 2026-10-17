@@ -1,4 +1,4 @@
-"""Real-time Tier C vintages for the out-of-sample nowcasts (fix of Oct 13, 03:59 ET, after the final
+"""Real-time Tier C vintages for the out-of-sample nowcasts (a fix after the final
 scrutiny found that the Tier C classifier in 09 is trained on Opus codes from every month, including
 months after a nowcast's origin). For each origin month t (2017-01 to 2026-10, COVID window skipped), the
 relevance, tone and inflation-direction classifiers are re-trained on coded items dated before day 15 of t

@@ -2,8 +2,9 @@
 the Opus coder vs gold by class, source and period, the dictionary and TF-IDF baselines, test-retest,
 the swap tests and the minimal-pair suite.
     python scripts/08_validation.py
-Inputs: data/labels/gold_{sheet,key}.csv, gold_labels_{A,B}_part*.jsonl, gold_adjudicated*.jsonl,
-data/coded/codes.parquet, retest_key.csv, swap_key.csv, the minimal-pair outputs.
+Inputs: data/labels/gold_{sheet,key}.csv; the two annotator passes (src.gold: Sonnet 5.5 and Haiku 5.5 labels,
+gold_prelabels_*.jsonl, with my corrections, human/human_verified_{A,B}.jsonl); gold_adjudicated*.jsonl (the
+Fable 5.1 adjudicator); data/coded/codes.parquet, retest_key.csv, swap_key.csv, the minimal-pair outputs.
 Writes outputs/results_validation.json and outputs/tables/val_*.csv; data/labels/gold_final.csv.
 """
 import _bootstrap  # noqa: F401
@@ -17,6 +18,7 @@ from src.baselines import cv_predict, train
 from src.coded import TOPICS, as_list, read_jsonl, to_frame, validate
 from src.config import CODED, LABELS, OUTPUTS, TABLES
 from src.dictionary import code as dict_code
+from src.gold import PASSES, corrections, load_pass, model_labels
 from src.minimal_pairs import build as mp_build, score as mp_score
 from src.validate import accuracy, agreement, claim_f1
 
@@ -44,10 +46,21 @@ def claimset(cl):
     return frozenset((c["indicator"], round(float(c["value"]), 6)) for c in as_list(cl))
 
 
-# ---------------- 1. gold: annotators A and B, agreement, adjudication
+# ---------------- 1. gold: annotator passes A and B, agreement, adjudication
 sheet = pd.read_csv(LABELS / "gold_sheet.csv")
 key = pd.read_csv(LABELS / "gold_key.csv")
-A_rows, B_rows = load_parts("gold_labels_A_part*.jsonl"), load_parts("gold_labels_B_part*.jsonl")
+# the models' own labels before my corrections: the only fully independent pair, so the main reliability figure
+MA = to_frame(model_labels("A")).set_index("item_id")
+MB = to_frame(model_labels("B")).set_index("item_id")
+pre = [agreement(MA[f], MB[f], f) for f in FIELDS]
+pd.DataFrame(pre).to_csv(TABLES / "val_agreement_models_prereview.csv", index=False)
+OUT["agreement_models_prereview"] = pre
+OUT["models"] = {r: PASSES[r][1] for r in PASSES}
+FIX_FIELDS = FIELDS + ["topics", "claims"]
+OUT["review_corrections"] = {r: {"n_items": len(corrections(r)), "n_total": len(MA),
+                                 "fields": {f: sum(f in c.get("changed", []) for c in corrections(r)) for f in FIX_FIELDS}}
+                             for r in PASSES}
+A_rows, B_rows = load_pass("A"), load_pass("B")
 okA, pA = validate(sheet, A_rows, coder=False)
 okB, pB = validate(sheet, B_rows, coder=False)
 OUT["annotator_validation"] = {"A_valid": len(okA), "A_problems": pA.to_dict("records"),
@@ -139,7 +152,7 @@ for f in FIELDS:
         s = G[f"agreed_{f}"] == flag
         if s.sum() >= 5:   # items where A and B agreed / disagreed on THIS field ("adjudicated" = disagreed on it)
             add("opus", f, G.loc[s, f], coder.loc[s, f], "annotators_agreed" if flag else "adjudicated")
-    s = ~G["agreed_all"].astype(bool)   # the 55 items with any disagreement, all sent to the adjudicator
+    s = ~G["agreed_all"].astype(bool)   # the items with any disagreement, all sent to the adjudicator
     add("opus", f, G.loc[s, f], coder.loc[s, f], "any_disagreement")
 relg = G["relevant"] == "yes"
 tr_rel = train_items[train_items["relevant"] == "yes"]

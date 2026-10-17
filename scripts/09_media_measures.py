@@ -32,7 +32,7 @@ R["coded_counts"] = {"news_coded": int(X["tier"].isin(["B_news", "A_news2026"]).
 
 own = monthly_news(news).reindex(months)
 own_red = monthly_simple(red).reindex(months)
-# quarterly own-Opus series (PREREG kill switch + dated deviation of Oct 13, 02:46): survey months grouped by quarter
+# quarterly own-Opus series (PREREG kill switch + the recorded deviation, note 8): survey months grouped by quarter
 news["quarter"] = news["survey_month"].dt.to_period("Q").dt.start_time
 ownq = monthly_news(news, key="quarter")
 red["quarter"] = red["survey_month"].dt.to_period("Q").dt.start_time

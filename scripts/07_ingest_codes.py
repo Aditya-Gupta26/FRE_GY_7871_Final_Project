@@ -1,8 +1,8 @@
-"""Validate every returned coder batch and every annotator file, list items to re-send, and merge.
+"""Validate every returned coder batch, list items to re-send, and merge.
     python scripts/07_ingest_codes.py            # report + write the merged files
     python scripts/07_ingest_codes.py resend     # also write *_resend_in.jsonl batches for failed items
-Writes data/coded/codes.parquet (with evidence quotes), data/coded/codes.csv (no text, for git),
-data/labels/gold_labels_{A,B}.jsonl checks, outputs/tables/coding_validation.csv.
+Writes data/coded/codes.parquet (with evidence quotes), data/coded/codes.csv (no text, for git) and
+outputs/tables/coding_validation.csv.
 """
 import _bootstrap  # noqa: F401
 import json
@@ -12,7 +12,7 @@ from pathlib import Path
 import pandas as pd
 
 from src.coded import as_list, read_jsonl, to_frame, validate
-from src.config import CODED, LABELS, TABLES
+from src.config import CODED, TABLES
 
 B = CODED / "batches"
 rows, report = [], []

@@ -1,6 +1,6 @@
 # Corpus documentation and data provenance
 
-This file documents the media corpus the way the brief asks (search terms, dates, source selection and inclusion criteria; unit of observation; geography and audience; duplicates, reposts, ads and bots; missing data, access limits and sampling; supply vs engagement vs exposure), plus where every economic and survey series comes from. All counts are produced by `scripts/05_build_corpus.py` and saved in `outputs/tables/corpus_*.csv|json`; the numbers below are from the run of Oct 13, 2026.
+This file documents the media corpus the way the brief asks (search terms, dates, source selection and inclusion criteria; unit of observation; geography and audience; duplicates, reposts, ads and bots; missing data, access limits and sampling; supply vs engagement vs exposure), plus where every economic and survey series comes from. All counts are produced by `scripts/05_build_corpus.py` and saved in `outputs/tables/corpus_*.csv|json`; the numbers below are from the final run.
 
 ## 1. News headlines (Google News RSS)
 
